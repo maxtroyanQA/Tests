@@ -1,32 +1,32 @@
 package autotests;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.junit5.ScreenShooterExtension;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.NoSuchElementException;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.WebDriverRunner.url;
+import static org.junit.jupiter.api.Assertions.*;
 
-@ExtendWith(ScreenShooterExtension.class)
-@DisplayName("Негативный тест")
-public class LoginNegativeTests extends TestBase {
+class LoginNegativeTests extends LoginPage {
 
     @Test
-    @DisplayName("Ввод неправильного логина и пароля")
-    void incorrectUserNameAndPassword() {
+    void incorrectUserNameAndPassword(){
+        try {
+            driver.get(Site);
+            WebElement element;
 
-        open(properties.startSITE);
-        loginPage.ALLPAGE.shouldNot(Condition.text(loginPage.FOUNDTEXT));
 
-        Assertions.assertEquals(url(), loginPage.SITELOGIN);
-        loginPage.setWrongLogin()
-                .setWrongPass()
-                .clickButton();
+            XpathButton.click();
 
-        loginPage.ALLPAGE.shouldHave(Condition.text("loginPage.FOUNDTEXT"));
+            element = driver.findElement(By.xpath(FoundText));
+            fail();
 
+            assertEquals(driver.getCurrentUrl(), SiteLogin);
+        }
+        catch (NoSuchElementException ignored){
+            assertThrows(NoSuchElementException.class, () ->{
+                WebElement element = driver.findElement(By.xpath(FoundText));
+            });
+        }
     }
 }

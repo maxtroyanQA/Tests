@@ -1,47 +1,43 @@
 package autotests;
 
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.junit5.ScreenShooterExtension;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.webdriver;
-import static com.codeborne.selenide.WebDriverConditions.url;
-
-@DisplayName("Позитивный тест3")
-@ExtendWith(ScreenShooterExtension.class)
-public class LoginPositiveTests extends TestBase {
-
-
-    @ParameterizedTest
-    @CsvSource(value = {
-            "Тест, Т",
-            "Авто Пользователь, 12345678"})
-
-    @DisplayName("Ввод правильного логина и пароля с проверкой авторизации")
-    public void PositiveTests(String login, String pass) {
-
+class LoginPositiveTests extends LoginPage {
+    @Test
+    void PositiveTests(){
         try {
-            //Переход на сайт указанный
-            open(properties.startSITE);
+            driver.get(Site);
+            WebElement element;
+            driver.manage().window().maximize();
 
-            //method chaining (цепочки вызовов)
-            loginPage.setLOGIN(login).setPass(pass)
-                    .clickButton();
+            XpathUser.click();
+            XpathUser.sendKeys(Login);
 
-            webdriver().shouldHave(url(loginPage.SITEEDIT));
+            XpathPass.click();
+            XpathPass.sendKeys(Password);
 
-            loginPage.clickUserAvatar();
-            //сравнение введенного имени пользователя и пароля
-            loginPage.NAME.shouldHave(Condition.text(loginPage.USERLOGIN));
-            loginPage.EMAIL.shouldHave(Condition.text(loginPage.USEREMAIL));
-        } catch (Exception e) {
-            e.printStackTrace();
+            XpathButton.click();
+
+            assertEquals(driver.getCurrentUrl(), SiteEdit);
+
+            XpathAvatar.click();
+
+            String getUserName = XpathLoginName.getText();
+            assertEquals(getUserName, Login);
+
+            String getEmail = XpathEmail.getText();
+            assertEquals(getEmail, Email);
+        }
+        catch (NoSuchElementException ignored){
+            assertThrows(NoSuchElementException.class, () ->{
+                WebElement element = driver.findElement(By.xpath(FoundText));
+            });
         }
     }
 }
-

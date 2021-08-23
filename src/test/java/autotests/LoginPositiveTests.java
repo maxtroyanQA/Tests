@@ -1,18 +1,31 @@
 package autotests;
 
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class LoginPositiveTests extends LoginPage {
+public class LoginPositiveTests extends LoginPage {
+
     @Test
     void PositiveTests(){
         try {
-            driver.get(Site);
+            //Установка браузера открытия
+            // браузер default Chrome
+            Configuration.browser = "chrome";
+            //Установка размер окра браузера
+            Configuration.browserSize = "1500x1500";
+            //Переход на сайт указанный в LoginPage->site
+            Selenide.open(site);
+            //method chaining (цепочки вызовов)
+            setLogin()
+                    .setPass()
+                    .buttonClick()
+                    .clickUserAvatar();
+            //button.shouldBe(visible.because("Кнопка должна быть видимой")).click();
+           // ((SelenideElement)this.enter.getWrappedElement()).shouldBe(Condition.visible).click();
+            /* driver.get(Site);
             WebElement element;
             driver.manage().window().maximize();
 
@@ -28,16 +41,55 @@ class LoginPositiveTests extends LoginPage {
 
             XpathAvatar.click();
 
-            String getUserName = XpathLoginName.getText();
-            assertEquals(getUserName, Login);
 
-            String getEmail = XpathEmail.getText();
-            assertEquals(getEmail, Email);
+           */
+//            String getUserName = XpathLoginName.getText();
+//            assertEquals(getUserName, Login);
+//
+//            String getEmail = XpathEmail.getText();
+//            assertEquals(getEmail, Email);
+       System.out.println("OK");
         }
         catch (NoSuchElementException ignored){
-            assertThrows(NoSuchElementException.class, () ->{
-                WebElement element = driver.findElement(By.xpath(FoundText));
-            });
+           // assertThrows(NoSuchElementException.class, () ->{
+           //     WebElement element = driver.findElement(By.xpath(FoundText));
+           // });
         }
+
+
     }
-}
+
+
+
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        public setLogin setLogin (login) {
+//
+//            return this;
+//        }
+//
+//        public setLogin setLogin(String userLogin) {
+//            return this;
+//        }
+//
+//        public setLogin setPassword(String userPassword) {
+//
+//
+//        }
+
+

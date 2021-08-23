@@ -1,33 +1,49 @@
 package autotests;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
-class  LoginPage extends TestBase{
-    protected String Site = "https://tt-develop.quality-lab.ru";
-    protected String SiteLogin = "https://tt-develop.quality-lab.ru/login";
-    protected String SiteEdit = "https://tt-develop.quality-lab.ru/report/group/edit";
-    protected String Login = "Авто Пользователь";
-    protected String Email = "1241242@m.r";
-    protected String Password = "12345678";
-    protected String FoundText = "Invalid credentials.";
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 
-    @FindBy (xpath = "//input[@name = '_username']")
-    WebElement XpathUser;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
 
-    @FindBy (xpath = "//input[@id = 'password']")
-    WebElement XpathPass;
+class  LoginPage extends TestBase {
+    //Объявление пользоательских данных и других значений
+    protected String site = "https://tt-develop.quality-lab.ru";
+    protected String siteLogin = "https://tt-develop.quality-lab.ru/login";
+    protected String siteEdit = "https://tt-develop.quality-lab.ru/report/group/edit";
+    protected String userLogin = "Авто Пользователь";
+    protected String email = "1241242@m.r";
+    protected String userPassword = "12345678";
+    protected String foundText = "Invalid credentials.";
+    //CSS и XPath локаторы
+    protected SelenideElement login = $("#username");
+    protected SelenideElement password = $("#password");
+    protected SelenideElement userName = $("span[class='m-card-user__name m--font-weight-500']");
+    protected SelenideElement userEmail = $("span[class='m-card-user__email m--font-weight-300 m-link']");
 
-    @FindBy (xpath = "//input[@id = '_submit']")
-    WebElement XpathButton;
-
-    @FindBy (xpath = "//div [@class = 'm-stack__item m-topbar__nav-wrapper']")
-    WebElement XpathAvatar;
-
-    @FindBy (xpath = "//span [@class = 'm-card-user__name m--font-weight-500']")
-    WebElement XpathLoginName;
-
-    @FindBy (xpath = "//span[@class='m-card-user__email m--font-weight-300 m-link']")
-    WebElement XpathEmail;
-
+    //метод ввода логина
+    LoginPage setLogin() {
+        login.sendKeys(userLogin);
+        return this;
+    }
+    //метод ввода пароля
+    LoginPage setPass() {
+        password.sendKeys(userPassword);
+        return this;
+    }
+    //метод нажатия кнопки Войти
+    LoginPage buttonClick() {
+        //проверка если конпка видимая, то ок если нет, то выдаст в терминал сообщение "Кнопка должна быть видимой"
+        $("#_submit")
+                .shouldBe(Condition.visible.because("Кнопка должна быть видимой")).click();
+        return this;
+    }
+    //метод нажания на аватар пользователя
+    LoginPage clickUserAvatar() {
+        //проверка если конпка видимая, то ок если нет, то выдаст в терминал сообщение "Кнопка должна быть видимой"
+        $("div[class='m-stack__item m-topbar__nav-wrapper']")
+                .shouldBe(visible.because("Кнопка должна быть видимой")).click();
+        return this;
+    }
 }

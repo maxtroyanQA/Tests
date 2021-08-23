@@ -1,14 +1,11 @@
 package autotests;
 
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.NoSuchElementException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class FirstTest {
     @BeforeAll
@@ -68,7 +65,7 @@ class FirstTest {
 class LoginTest extends TestBase {
     @Test
     void incorrectUserNameAndPassword(){
-        driver = new ChromeDriver(new ChromeOptions().addArguments("--window-size=600,600"));
+     /*   driver = new ChromeDriver(new ChromeOptions().addArguments("--window-size=600,600"));
         driver.get("https://tt-develop.quality-lab.ru");
         WebElement element;
         element = driver.findElement(By.xpath("//input[@name='_username']"));
@@ -79,11 +76,11 @@ class LoginTest extends TestBase {
         element.sendKeys("Password");
         element = driver.findElement(By.xpath("//input[@id='_submit']"));
         element.click();
-        try {
-            element = driver.findElement(By.xpath("// div [text()='Invalid credentials.']"));
+     */   try {
+           // element = driver.findElement(By.xpath("// div [text()='Invalid credentials.']"));
             //div[div='Invalid credentials.']
             //div[@class='m-login__signin']/div[1]
-            fail();
+         //   fail();
         }
         catch (NoSuchElementException ignored){
 

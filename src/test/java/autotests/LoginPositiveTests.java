@@ -1,31 +1,33 @@
 package autotests;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
 
 
-public class LoginPositiveTests extends LoginPage {
+public class LoginPositiveTests extends AuthorizedTestBase {
 
     @Test
     void PositiveTests() {
-        //Установка браузера открытия
-        // браузер default Chrome
-        Configuration.browser = "chrome";
-        //Установка размер окра браузера
-        Configuration.browserSize = "1500x1500";
         //Переход на сайт указанный в LoginPage->site
-        Selenide.open(site);
+    //    open(site);
         //method chaining (цепочки вызовов)
-            setLogin(userLogin)
-                .setPass(userPassword)
-                .buttonClick()
-                .foundSiteEdit(siteEdit)
+      //      setLogin(userLogin)
+       //         .setPass(userPassword)
+       //         .buttonClick()
+                foundSiteEdit(siteEdit)
                 .clickUserAvatar();
         //сравнение введенного имени пользователя и пароля
         name.shouldHave(Condition.text(userLogin));
         email.shouldHave(Condition.text(userEmail));
+        //получение месяца из даты системы (текущий месяц)
+//        Calendar calendar = Calendar.getInstance();
+//        String[] monthNames = { "Январь", "Февраль", "Март", "Апрель",
+//                                   "Май", "Июнь", "Июль", "Август",
+//                              "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
+//        };
+//        String monthNow = monthNames[calendar.get(Calendar.MONTH)];
+//
+//   System.out.println(monthNow);
 
 
     }

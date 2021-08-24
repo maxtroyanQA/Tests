@@ -5,8 +5,12 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Assertions;
 
+import java.util.Calendar;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 class  LoginPage extends TestBase {
@@ -14,6 +18,7 @@ class  LoginPage extends TestBase {
     protected String site = "https://tt-develop.quality-lab.ru";
     protected String siteLogin = "https://tt-develop.quality-lab.ru/login";
     protected String siteEdit = "https://tt-develop.quality-lab.ru/report/group/edit";
+    protected String siteCalendar = "https://tt-develop.quality-lab.ru/calendar/";
     protected String userLogin = "Авто Пользователь";
     protected String userEmail = "1241242@m.r";
     protected String userPassword = "12345678";
@@ -26,6 +31,10 @@ class  LoginPage extends TestBase {
     protected SelenideElement name = $("span[class='m-card-user__name m--font-weight-500']");
     protected SelenideElement email = $("span[class='m-card-user__email m--font-weight-300 m-link']");
     protected SelenideElement allPage = $("[class = 'm-login__signin']");
+    protected SelenideElement buttonLogin = $("#_submit");
+    protected SelenideElement buttonMenu = $("#m_aside_left_minimize_toggle");
+    protected SelenideElement avatar = $("div[class='m-stack__item m-topbar__nav-wrapper']");
+
 
     //метод ввода логина
     LoginPage setLogin(String setLoginSend) {
@@ -40,8 +49,7 @@ class  LoginPage extends TestBase {
     //метод нажатия кнопки Войти
     LoginPage buttonClick() {
         //проверка если кнопка видимая, то ок если нет, то выдаст в терминал сообщение "Кнопка должна быть видимой"
-        $("#_submit")
-                .shouldBe(Condition.visible.because("Кнопка должна быть видимой")).click();
+        buttonLogin.shouldBe(Condition.visible.because("Кнопка должна быть видимой")).click();
         return this;
     }
     LoginPage foundSiteEdit(String foundSiteEditSet) {
@@ -52,8 +60,7 @@ class  LoginPage extends TestBase {
     //метод нажатия на аватар пользователя
     LoginPage clickUserAvatar() {
         //проверка если кнопка видимая, то ок если нет, то выдаст в терминал сообщение "Кнопка должна быть видимой"
-        $("div[class='m-stack__item m-topbar__nav-wrapper']")
-                .shouldBe(visible.because("Аватар должен быть видимый")).click();
+        avatar.shouldBe(visible.because("Аватар должен быть видимый")).click();
         return this;
     }
     //метод ввода неправильного логина
@@ -65,5 +72,35 @@ class  LoginPage extends TestBase {
     LoginPage setWrongPass() {
         password.sendKeys(wrongPass);
         return this;
+    }
+    //метод ввода неправильного пароля
+    LoginPage clickMenu() {
+        buttonMenu.shouldBe(visible.because("Кнопка должна быть видимой")).click();;
+        return this;
+    }
+    LoginPage clickMenuCalendar(){
+        $x("//*[@id='mCSB_1_container']/ul/li[4]").click();
+        $x("//div[@class = 'm-menu__submenu'] //a[@href = '/calendar/'] ").click();
+        return this;
+    }
+    LoginPage foundSiteCalendar(String foundSiteCalendarSet) {
+        //проверка если кнопка видимая, то ок если нет, то выдаст в терминал сообщение "Кнопка должна быть видимой"
+        Assertions.assertEquals(url(),foundSiteCalendarSet);
+        return this;
+    }
+    LoginPage dataComparison (){
+        Calendar calendar = Calendar.getInstance();
+        String[] monthNames = { "январь", "февраль", "март", "апрель",
+                "май", "июнь", "июль", "Август",
+                "сентябрь", "октябрь", "ноябрь", "декабрь"
+        };
+        String monthNow = monthNames[calendar.get(Calendar.MONTH)];
+        String yearNow = String.valueOf(calendar.get(Calendar.YEAR));
+SelenideElement textData = $x("//span[@id='schedule-month-title']");
+System.out.println(textData);
+       textData.shouldHave(text(monthNow), text(yearNow));
+        return this;
+
+
     }
 }

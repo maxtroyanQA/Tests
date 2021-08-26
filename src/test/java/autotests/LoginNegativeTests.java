@@ -1,28 +1,29 @@
 package autotests;
 
+import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.NoSuchElementException;
+
+import java.io.IOException;
+
+import static com.codeborne.selenide.WebDriverRunner.url;
+
 
 class LoginNegativeTests extends LoginPage {
 
+
     @Test
-    void incorrectUserNameAndPassword(){
-        try {
-       /*     driver.get(Site);
-            WebElement element;
+    void incorrectUserNameAndPassword() throws IOException {
 
 
-            XpathButton.click();
+        ALLPAGE.shouldNot(Condition.text(FOUNDTEXT));
 
-            element = driver.findElement(By.xpath(FoundText));
-            fail();
+        Assertions.assertEquals(url(), SITELOGIN);
+        setWrongLogin()
+                .setWrongPass()
+                .clickButton();
 
-            assertEquals(driver.getCurrentUrl(), SiteLogin);
-      */  }
-        catch (NoSuchElementException ignored){
-          //  assertThrows(NoSuchElementException.class, () ->{
-            //    WebElement element = driver.findElement(By.xpath(FoundText));
-          //  });
-        }
+        ALLPAGE.shouldHave(Condition.text(FOUNDTEXT));
+
     }
 }

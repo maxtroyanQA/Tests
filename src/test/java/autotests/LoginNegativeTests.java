@@ -7,22 +7,22 @@ import org.junit.jupiter.api.*;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
+
 class LoginNegativeTests extends LoginPage {
 
 
     @Test
     void incorrectUserNameAndPassword() {
+        open(SITE);
 
-            //Переход на сайт указанный в LoginPage->site
-            open(site);
+        ALLPAGE.shouldNot(Condition.text(FOUNDTEXT));
 
-            allPage.shouldNot(Condition.text(foundText));
-            Assertions.assertEquals(url(), siteLogin);
-            setWrongLogin()
-                    .setWrongPass()
-                    .buttonClick();
+        Assertions.assertEquals(url(), SITELOGIN);
+        setWrongLogin()
+                .setWrongPass()
+                .clickButton();
 
-            allPage.shouldHave(Condition.text(foundText));
+        ALLPAGE.shouldHave(Condition.text(FOUNDTEXT));
 
     }
 }

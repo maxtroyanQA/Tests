@@ -17,11 +17,11 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 
 class  LoginPage extends TestBase {
     // Объявление пользовательских данных и других значений
-    protected String SITE = "https://tt-develop.quality-lab.ru";
+    //protected String SITE = "https://tt-develop.quality-lab.ru";
     protected String SITELOGIN =
                      "https://tt-develop.quality-lab.ru/login";
     protected String SITEEDIT =
-                     "https://tt-develop.quality-lab.ru/report/group/edit1";
+                     "https://tt-develop.quality-lab.ru/report/group/edit";
     protected String SITECALENDAR =
                      "https://tt-develop.quality-lab.ru/calendar/";
     protected String USERLOGIN = "Авто Пользователь";

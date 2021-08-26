@@ -2,9 +2,10 @@ package autotests;
 
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.open;
+import java.io.IOException;
+
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 
@@ -12,8 +13,8 @@ class LoginNegativeTests extends LoginPage {
 
 
     @Test
-    void incorrectUserNameAndPassword() {
-        open(SITE);
+    void incorrectUserNameAndPassword() throws IOException {
+
 
         ALLPAGE.shouldNot(Condition.text(FOUNDTEXT));
 

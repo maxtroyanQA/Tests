@@ -24,9 +24,9 @@ class  LoginPage extends TestBase {
                      "https://tt-develop.quality-lab.ru/report/group/edit";
     protected String SITECALENDAR =
                      "https://tt-develop.quality-lab.ru/calendar/";
-    protected String USERLOGIN = "Авто Пользователь";
+    // protected String USERLOGIN = "Авто Пользователь";
     protected String USEREMAIL = "1241242@m.r";
-    protected String USERPASSWORD = "12345678";
+    //protected String USERPASSWORD = "12345678";
     protected String FOUNDTEXT = "Invalid credentials.";
     protected String WRONGLOGIN = "TestUser";
     protected String WRONGPASS = "Password";

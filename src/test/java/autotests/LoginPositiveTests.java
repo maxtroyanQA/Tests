@@ -11,7 +11,7 @@ public class LoginPositiveTests extends AuthorizedTestBase {
         foundSiteEdit(SITEEDIT)
                 .clickUserAvatar();
         //сравнение введенного имени пользователя и пароля
-        NAME.shouldHave(Condition.text(USERLOGIN));
+        NAME.shouldHave(Condition.attribute(properties.LOGIN));
         EMAIL.shouldHave(Condition.text(USEREMAIL));
     }
 }

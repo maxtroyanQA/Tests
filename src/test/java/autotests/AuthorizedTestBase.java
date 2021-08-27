@@ -2,36 +2,31 @@ package autotests;
 
 import org.junit.jupiter.api.BeforeEach;
 
-import static com.codeborne.selenide.Selenide.open;
-
-import java.io.IOException;
 import java.util.Properties;
 
-
+import static com.codeborne.selenide.Selenide.open;
 
 
 public class AuthorizedTestBase extends LoginPage{
-    public static Properties properties;
 
+    public static TypesProperties properties;
     public static Properties resource;
-    @BeforeEach
-    public static void initProperties() throws Exception {
-
-    }
-
-
 
     @BeforeEach
-    void Authorized() throws Exception {
+    public  void initProperties() throws Exception {
         resource = new Properties();
         resource.load(ClassLoader.getSystemResourceAsStream("app.properties"));
-        properties = new Properties();
+        properties = new TypesProperties();
+    }
+
+    @BeforeEach
+    void Authorized() {
 
         open(properties.SITE);     //Переход на сайт указанный в LoginPage->SITE
 
         //method chaining (цепочки вызовов)
-        setLOGIN(USERLOGIN)
-                .setPass(USERPASSWORD)
+        setLOGIN(properties.LOGIN)
+                .setPass(properties.PASSWORD)
                 .clickButton();
     }
 }

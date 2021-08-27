@@ -7,22 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
-//
-//public class Util {
-//    @BeforeAll
-//    public String getPropertyValue(String propertyName){
-//        String propertyValue = "";
-//        Properties properties = new Properties();
-//
-//        try (InputStream inputStream = this.getClass().getResourceAsStream("app.properties")){
-//            properties.load(inputStream);
-//            propertyValue = properties.getProperty(propertyName);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return propertyValue;
-//    }
-//}
+
 public class TestBase {
 
     @BeforeEach

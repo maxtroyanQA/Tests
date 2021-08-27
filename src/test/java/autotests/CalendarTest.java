@@ -6,26 +6,31 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.sleep;
 
 
-public class CalendarTest extends AuthorizedTestBase {
+public class CalendarTest extends TestBase{
+
 
     @BeforeEach
-    void preconditionCalendarTest() {
-        clickMenu()
+    void preconditionCalendarTest() throws Exception {
+
+        authorized.Authorized();
+
+        loginPage.clickMenu()
                 .clickMenuCalendar()
-                .foundSiteCalendar(SITECALENDAR)
+                .foundSiteCalendar(loginPage.SITECALENDAR)
                 .loadCalendar();
     }
 
     @Test
     void calendarTest1() {
-        comparisonData()
+
+        loginPage.comparisonData()
                 .checkWorkDay()
                 .checkWeekendDay();
     }
 
     @Test
     void calendarTest2(){
-        clickNextMonth()
+        loginPage.clickNextMonth()
                 .loadCalendar()
                 .checkWorkDay()
                 .checkWeekendDay();
@@ -33,7 +38,7 @@ public class CalendarTest extends AuthorizedTestBase {
 
     @Test
     void calendarTest3(){
-        selectAnotherUser()
+        loginPage.selectAnotherUser()
                 .loadCalendar()
                 .checkWorkDay()
                 .checkWeekendDay();

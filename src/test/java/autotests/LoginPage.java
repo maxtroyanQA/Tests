@@ -190,7 +190,6 @@ class  LoginPage extends TestBase {
                 (By.xpath(WORKDAYXPATH));
         for (WebElement workDay : workDays) {
             if (workDays.size() > 0){
-                System.out.println("Work days " + workDays.size());
             } else{
                 System.out.println("no work days");
             }
@@ -205,7 +204,6 @@ class  LoginPage extends TestBase {
                 (By.xpath(WEEKENDDAYXPATH));
         for (WebElement weekendDay : weekendDays) {
             if (weekendDays.size() > 0){
-                System.out.println("Weekend days " + weekendDays.size());
             } else{
                 System.out.println("no weekend days");
             }

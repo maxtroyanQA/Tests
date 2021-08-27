@@ -5,14 +5,28 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
+import java.io.IOException;
+import java.util.Properties;
+
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 
 public class TestBase {
-
+    public static LoginPage loginPage;
+    public static AuthorizedTestBase authorized;
+    public static TypesProperties properties;
+    public static Properties resource;
+  //  public static TypesProperties typesProperties;
     @BeforeEach
     //Конфигурация браузера
-    void setUp() {
+    void setUp() throws IOException {
+        loginPage = new LoginPage();
+        authorized = new AuthorizedTestBase();
+        resource = new Properties();
+        properties = new TypesProperties();
+
+        resource.load(ClassLoader.getSystemResourceAsStream("app.properties"));
+      //  typesProperties = new TypesProperties();
         // Выбор браузера для открытия
         // Браузер default Chrome
         Configuration.browser = "chrome";
@@ -20,6 +34,8 @@ public class TestBase {
         Configuration.browserSize = "1500x1500";
         // Очистка кэша(форм) от ранних записей
         WebDriverRunner.clearBrowserCache();
+
+
     }
 
     @AfterEach
@@ -27,4 +43,6 @@ public class TestBase {
     void exit(){
        closeWebDriver();
     }
+
+
 }

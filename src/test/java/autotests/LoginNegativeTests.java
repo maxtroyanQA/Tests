@@ -4,26 +4,25 @@ import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-
+import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 
-class LoginNegativeTests extends LoginPage {
+class LoginNegativeTests extends TestBase{
 
 
     @Test
-    void incorrectUserNameAndPassword() throws IOException {
+    void incorrectUserNameAndPassword() throws Exception {
 
+open(properties.startSITE);
+        loginPage.ALLPAGE.shouldNot(Condition.text(loginPage.FOUNDTEXT));
 
-        ALLPAGE.shouldNot(Condition.text(FOUNDTEXT));
-
-        Assertions.assertEquals(url(), SITELOGIN);
-        setWrongLogin()
+        Assertions.assertEquals(url(), loginPage.SITELOGIN);
+        loginPage.setWrongLogin()
                 .setWrongPass()
                 .clickButton();
 
-        ALLPAGE.shouldHave(Condition.text(FOUNDTEXT));
+        loginPage.ALLPAGE.shouldHave(Condition.text(loginPage.FOUNDTEXT));
 
     }
 }

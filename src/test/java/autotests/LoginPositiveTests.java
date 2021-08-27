@@ -1,17 +1,20 @@
 package autotests;
 
+
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 
-
-public class LoginPositiveTests extends AuthorizedTestBase {
-
+public class LoginPositiveTests extends TestBase {
+    TypesProperties properties = new TypesProperties();
     @Test
-    void PositiveTests() {
-        foundSiteEdit(SITEEDIT)
-                .clickUserAvatar();
+    void PositiveTests() throws Exception {
+        authorized.Authorized();
+
+        loginPage.foundSiteEdit(loginPage.SITEEDIT)
+                 .clickUserAvatar();
         //сравнение введенного имени пользователя и пароля
-        NAME.shouldHave(Condition.attribute(properties.LOGIN));
-        EMAIL.shouldHave(Condition.text(USEREMAIL));
+        loginPage.NAME.shouldHave(Condition.text(properties.LOGIN_P));
+        loginPage.EMAIL.shouldHave(Condition.text(loginPage.USEREMAIL));
     }
+
 }

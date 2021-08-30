@@ -15,6 +15,7 @@ public class AuthorizedTestBase extends TestBase{
 //    }
 
     @BeforeEach
+
     void Authorized() {
 
        //System.out.println(System.getenv("URL_E"));

@@ -2,6 +2,7 @@ package autotests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -76,6 +77,7 @@ class  LoginPage extends TestBase {
     protected SelenideElement MINICALENDAR =
               $x("//div[@class = 'm-menu__submenu'] //a[@href = '/calendar/']");
 
+    @Step ("Ввод логина")
     // Метод ввода логина
     LoginPage setLOGIN(String setLoginSend) {
 
@@ -83,6 +85,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
+    @Step("Ввод пароля")
     // Метод ввода пароля
     LoginPage setPass(String setPassSend) {
 
@@ -90,6 +93,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
+    @Step("Нажатия кнопки Войти")
     // Метод нажатия кнопки Войти
     LoginPage clickButton() {
 
@@ -101,6 +105,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
+    @Step
     // Метод проверки совпадения URL-адреса (домашняя странница)
     LoginPage foundSiteEdit(String foundSiteEditSet) {
 
@@ -108,6 +113,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
+    @Step
     // Метод нажатия на аватар пользователя
     LoginPage clickUserAvatar() {
 
@@ -119,6 +125,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
+    @Step
     // Метод ввода неправильного логина
     LoginPage setWrongLogin() {
 
@@ -126,6 +133,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
+    @Step
     // Метод ввода неправильного пароля
     LoginPage setWrongPass() {
 
@@ -133,6 +141,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
+    @Step
     // Метод нажатия на выпадающее меню
     LoginPage clickMenu() {
 
@@ -141,6 +150,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
+    @Step
     // Метод нажатия в выпадающем меню на вкладку календарь
     LoginPage clickMenuCalendar(){
 
@@ -149,6 +159,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
+    @Step
     // Метод проверки совпадения URL-адреса (страница календарь)
     LoginPage foundSiteCalendar(String foundSiteCalendarSet) {
 
@@ -156,6 +167,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
+    @Step
     // Метод проверки сегодняшней даты и даты календаря
     LoginPage comparisonData(){
 
@@ -176,6 +188,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
+    @Step
     // Метод проверки загрузки календаря
     LoginPage loadCalendar(){
 
@@ -183,6 +196,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
+    @Step
     // Метод проверки рабочих дней
     LoginPage checkWorkDay(){
 
@@ -197,6 +211,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
+    @Step
     // Метод проверки выходных дней
     LoginPage checkWeekendDay(){
 
@@ -211,6 +226,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
+    @Step
     // Метод нажатия на месяц "Сентябрь"
     LoginPage clickNextMonth(){
 
@@ -220,6 +236,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
+    @Step
     // Метод выбора пользователя "Абдулин Ринат"
     LoginPage selectAnotherUser(){
 
@@ -228,6 +245,4 @@ class  LoginPage extends TestBase {
         APPLYCALENDAR.click();
        return this;
     }
-
-
 }

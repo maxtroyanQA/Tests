@@ -10,7 +10,7 @@ public class CalendarTest extends TestBase{
 
 
     @BeforeEach
-    void preconditionCalendarTest() throws Exception {
+    void preconditionCalendarTest() {
 
         authorized.Authorized();
 

@@ -17,10 +17,10 @@ public class AuthorizedTestBase extends TestBase{
     @BeforeEach
     void Authorized() {
 
-       System.out.println(System.getenv("URL_E"));
+       //System.out.println(System.getenv("URL_E"));
 
       //  System.out.println(properties.LOGIN);
-        open(System.getenv("URL_E"));     //Переход на сайт указанный в LoginPage->SITE
+        open(properties.startSITE);     //Переход на сайт указанный в LoginPage->SITE
 
         //method chaining (цепочки вызовов)
         loginPage.setLOGIN(properties.LOGIN_P)

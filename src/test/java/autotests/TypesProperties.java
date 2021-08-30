@@ -8,10 +8,6 @@ import ru.qatools.properties.Resource;
 @Resource.Classpath("app.properties")
 public  class TypesProperties extends TestBase {
 
-//    public TypesProperties() {
-//        PropertyLoader.populate(this); //инициализация полей класса значениями из файла
-//    }
-  //  private String login;
     @Property("STARTSITE")
     public String startSITE;
 

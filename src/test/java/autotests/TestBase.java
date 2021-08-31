@@ -16,7 +16,7 @@ public class TestBase {
     public static AuthorizedTestBase authorized;
     public static TypesProperties properties;
     public static Properties resource;
-  //  public static TypesProperties typesProperties;
+
     @BeforeEach
     //Конфигурация браузера
     void setUp() throws IOException {
@@ -26,10 +26,10 @@ public class TestBase {
         properties = new TypesProperties();
 
         resource.load(ClassLoader.getSystemResourceAsStream("app.properties"));
-      //  typesProperties = new TypesProperties();
+
         // Выбор браузера для открытия
         // Браузер default Chrome
-        Configuration.browser = "chrome";
+        Configuration.browser = "opera";
         // Установка размер окра браузера
         Configuration.browserSize = "1500x1500";
         // Очистка кэша(форм) от ранних записей

@@ -6,6 +6,7 @@ import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
 import java.util.Calendar;
 import java.util.List;
 
@@ -78,14 +79,16 @@ class  LoginPage extends TestBase {
               $x("//div[@class = 'm-menu__submenu'] //a[@href = '/calendar/']");
 
     @Step ("Ввод логина")
+
     // Метод ввода логина
-    LoginPage setLOGIN(String setLoginSend) {
+     LoginPage setLOGIN(String setLoginSend) {
 
         LOGIN.sendKeys(setLoginSend);
         return this;
     }
 
     @Step("Ввод пароля")
+
     // Метод ввода пароля
     LoginPage setPass(String setPassSend) {
 
@@ -105,7 +108,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
-    @Step
+    @Step("Поиск текста 'Invalid credentials.'")
     // Метод проверки совпадения URL-адреса (домашняя странница)
     LoginPage foundSiteEdit(String foundSiteEditSet) {
 
@@ -113,7 +116,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
-    @Step
+    @Step("Нажатие по аватару")
     // Метод нажатия на аватар пользователя
     LoginPage clickUserAvatar() {
 
@@ -125,7 +128,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
-    @Step
+    @Step("Ввод неправильного логина")
     // Метод ввода неправильного логина
     LoginPage setWrongLogin() {
 
@@ -133,7 +136,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
-    @Step
+    @Step("Ввод неправильного пароля")
     // Метод ввода неправильного пароля
     LoginPage setWrongPass() {
 
@@ -141,7 +144,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
-    @Step
+    @Step("Нажатие на выпадающее меню")
     // Метод нажатия на выпадающее меню
     LoginPage clickMenu() {
 
@@ -150,7 +153,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
-    @Step
+    @Step("Нажатие в выпадающем меню во вкладке Графики работы->Графики работы")
     // Метод нажатия в выпадающем меню на вкладку календарь
     LoginPage clickMenuCalendar(){
 
@@ -159,7 +162,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
-    @Step
+    @Step("Проверка что произошел переход на URL: https://tt-develop.quality-lab.ru/calendar/")
     // Метод проверки совпадения URL-адреса (страница календарь)
     LoginPage foundSiteCalendar(String foundSiteCalendarSet) {
 
@@ -167,9 +170,9 @@ class  LoginPage extends TestBase {
         return this;
     }
 
-    @Step
+    @Step("Сравнение даты календаря и текущей даты")
     // Метод проверки сегодняшней даты и даты календаря
-    LoginPage comparisonData(){
+    LoginPage comparisonDate(){
 
         // Создание массива с названием месяца на русском
         Calendar calendar = Calendar.getInstance();
@@ -188,7 +191,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
-    @Step
+    @Step("Проверка, что календарь загружен")
     // Метод проверки загрузки календаря
     LoginPage loadCalendar(){
 
@@ -196,7 +199,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
-    @Step
+    @Step("Проверка наличия рабочих дней")
     // Метод проверки рабочих дней
     LoginPage checkWorkDay(){
 
@@ -204,14 +207,18 @@ class  LoginPage extends TestBase {
                 (By.xpath(WORKDAYXPATH));
         for (WebElement workDay : workDays) {
             if (workDays.size() > 0){
-            } else{
-                System.out.println("no work days");
             }
         }
+        if (workDays.size() > 0){
+            System.out.println("Количество рабочих дней: " + workDays.size());
+        } else{
+            System.out.println("Рабочих дней нет");
+        }
+
         return this;
     }
 
-    @Step
+    @Step("Проверка наличия выходных дней")
     // Метод проверки выходных дней
     LoginPage checkWeekendDay(){
 
@@ -219,14 +226,18 @@ class  LoginPage extends TestBase {
                 (By.xpath(WEEKENDDAYXPATH));
         for (WebElement weekendDay : weekendDays) {
             if (weekendDays.size() > 0){
-            } else{
-                System.out.println("no weekend days");
             }
+            }
+        if (weekendDays.size() > 0){
+            System.out.println("Количество выходных дней: " + weekendDays.size());
+        } else{
+            System.out.println("Выходных дней нет");
         }
         return this;
+
     }
 
-    @Step
+    @Step("Выбор месяца сентябрь")
     // Метод нажатия на месяц "Сентябрь"
     LoginPage clickNextMonth(){
 
@@ -236,7 +247,7 @@ class  LoginPage extends TestBase {
         return this;
     }
 
-    @Step
+    @Step("Выбор пользователя: 'Абдулин Ринат'")
     // Метод выбора пользователя "Абдулин Ринат"
     LoginPage selectAnotherUser(){
 
@@ -245,4 +256,7 @@ class  LoginPage extends TestBase {
         APPLYCALENDAR.click();
        return this;
     }
+
+
+
 }

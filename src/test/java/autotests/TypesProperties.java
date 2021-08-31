@@ -17,37 +17,27 @@ public  class TypesProperties extends TestBase {
     @Property("PASSWORD_P")
     public String PASSWORD_P;
 
+    @Property("PASSWORD_TEST1")
+    public String PASSWORD_TEST1;
+
+    @Property("PASSWORD_TEST2")
+    public String PASSWORD_TEST2;
+
+    @Property("PASSWORD_TEST3")
+    public String PASSWORD_TEST3;
+
+    @Property("LOGIN_TEST1")
+    public String LOGIN_TEST1;
+
+    @Property("LOGIN_TEST2")
+    public String LOGIN_TEST2;
+
+    @Property("LOGIN_TEST3")
+    public String LOGIN_TEST3;
+
     public TypesProperties() {
         PropertyLoader.newInstance().populate(this);
     }
-
-//       public TypesProperties() {
-//        PropertyLoader.newInstance().populate(this);}
-
-//    public String getLOGIN() {
-//        return login;
-//    }
-//
-//    public void setLOGIN() {
-//        login = readProp("LOGIN");
-//    }
-
-
-
-
-
-
-
-//    public String readProp(String key) {
-//        Properties prop = new Properties();
-//        try {
-//            prop.load(new InputStreamReader(new FileInputStream("src/test/resources/config.properties"), StandardCharsets.UTF_8));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return prop.getProperty(key);
-//    }
-
 }
 
 

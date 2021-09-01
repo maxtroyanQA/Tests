@@ -4,12 +4,14 @@ import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
-
-class LoginNegativeTests extends TestBase{
+@ExtendWith(ScreenshotExtension.class)
+@DisplayName("Негативный тест")
+class LoginNegativeTests extends TestBase {
 
     @Test
     @DisplayName("Ввод неправильного логина и пароля")
@@ -20,8 +22,8 @@ class LoginNegativeTests extends TestBase{
 
         Assertions.assertEquals(url(), loginPage.SITELOGIN);
         loginPage.setWrongLogin()
-                 .setWrongPass()
-                 .clickButton();
+                .setWrongPass()
+                .clickButton();
 
         loginPage.ALLPAGE.shouldHave(Condition.text(loginPage.FOUNDTEXT));
 

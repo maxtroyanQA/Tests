@@ -6,38 +6,64 @@ import ru.qatools.properties.Resource;
 
 
 @Resource.Classpath("app.properties")
-public  class TypesProperties extends TestBase {
+public class TypesProperties extends TestBase {
 
     @Property("STARTSITE")
-    public String startSITE;
+    protected String startSITE;
 
     @Property("LOGIN_P")
-    public String LOGIN_P;
+    protected String LOGIN_P;
 
     @Property("PASSWORD_P")
-    public String PASSWORD_P;
+    protected String PASSWORD_P;
 
     @Property("PASSWORD_TEST1")
-    public String PASSWORD_TEST1;
+    protected String PASSWORD_TEST1;
 
     @Property("PASSWORD_TEST2")
-    public String PASSWORD_TEST2;
+    protected String PASSWORD_TEST2;
 
     @Property("PASSWORD_TEST3")
-    public String PASSWORD_TEST3;
+    protected String PASSWORD_TEST3;
 
     @Property("LOGIN_TEST1")
-    public String LOGIN_TEST1;
+    protected String LOGIN_TEST1;
 
     @Property("LOGIN_TEST2")
-    public String LOGIN_TEST2;
+    protected String LOGIN_TEST2;
 
     @Property("LOGIN_TEST3")
-    public String LOGIN_TEST3;
+    protected String LOGIN_TEST3;
 
-    public TypesProperties() {
+
+//    @NotNull
+//    private String EV(){
+//        String env = System.getenv("URL");
+//        if (env != null){
+//            return env;
+//        }
+//        return "empty";
+//    }
+//
+//    String URLSITE = null;
+//
+//    public String toggleVariable(String URLSITE){
+//
+//        if (EV().equals(startSITE) && (!EV().equals("empty"))){
+//            return EV();
+//        }else if (startSITE.equals(URLSITE)){
+//            return startSITE;
+//        }else {
+//            return URLSITE;
+//        }
+//    }
+
+    protected TypesProperties() {
         PropertyLoader.newInstance().populate(this);
     }
+
+
+
 }
 
 

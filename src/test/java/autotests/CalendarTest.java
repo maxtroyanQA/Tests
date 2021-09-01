@@ -7,7 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 @DisplayName("Тесты с календарём")
 @ExtendWith(ScreenshotExtension.class)
-public class CalendarTest extends TestBase{
+public class CalendarTest extends TestBase {
 
     @BeforeEach
     void preconditionCalendarTest() {
@@ -30,7 +30,7 @@ public class CalendarTest extends TestBase{
 
     @Test
     @DisplayName("Выбор месяца 'Сентябрь' и проверка рабочих/выходных дней")
-    void calendarTest2(){
+    void calendarTest2() {
         loginPage.clickNextMonth()
                 .loadCalendar()
                 .checkWorkDay()
@@ -39,11 +39,10 @@ public class CalendarTest extends TestBase{
 
     @Test
     @DisplayName("Выбор другого пользователя и проверка рабочих/выходных дней")
-    void calendarTest3(){
+    void calendarTest3() {
         loginPage.selectAnotherUser()
                 .loadCalendar()
                 .checkWorkDay()
                 .checkWeekendDay();
-                //sleep(5000);
     }
 }

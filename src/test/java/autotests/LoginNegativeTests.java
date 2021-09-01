@@ -11,7 +11,7 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 
 @ExtendWith(ScreenshotExtension.class)
 @DisplayName("Негативный тест")
-class LoginNegativeTests extends TestBase {
+public class LoginNegativeTests extends TestBase {
 
     @Test
     @DisplayName("Ввод неправильного логина и пароля")
@@ -25,7 +25,7 @@ class LoginNegativeTests extends TestBase {
                 .setWrongPass()
                 .clickButton();
 
-        loginPage.ALLPAGE.shouldHave(Condition.text(loginPage.FOUNDTEXT));
+        loginPage.ALLPAGE.shouldHave(Condition.text("loginPage.FOUNDTEXT"));
 
     }
 }

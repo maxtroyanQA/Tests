@@ -29,7 +29,7 @@ public class TestBase {
 
         // Выбор браузера для открытия
         // Браузер default Chrome
-        Configuration.browser = "opera";
+        Configuration.browser = "chrome";
         // Установка размер окра браузера
         Configuration.startMaximized = true;
         //Configuration.browserSize = "1500x1500";

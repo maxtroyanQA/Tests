@@ -18,7 +18,7 @@ public class TestBase {
     public static Properties resource;
 
     @BeforeEach
-    //Конфигурация браузера
+        //Конфигурация браузера
     void setUp() throws IOException {
         loginPage = new LoginPage();
         authorized = new AuthorizedTestBase();
@@ -31,17 +31,16 @@ public class TestBase {
         // Браузер default Chrome
         Configuration.browser = "opera";
         // Установка размер окра браузера
-        Configuration.browserSize = "1500x1500";
+        Configuration.startMaximized = true;
+        //Configuration.browserSize = "1500x1500";
         // Очистка кэша(форм) от ранних записей
         WebDriverRunner.clearBrowserCache();
-
-
     }
 
     @AfterEach
-    // Закрытие браузера после теста
-    void exit(){
-       closeWebDriver();
+        // Закрытие браузера после теста
+    void exit() {
+        closeWebDriver();
     }
 
 

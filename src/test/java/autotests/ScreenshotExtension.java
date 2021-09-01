@@ -15,38 +15,38 @@ public class ScreenshotExtension implements TestWatcher {
 
     @SneakyThrows
     @Override
-    public void testFailed(ExtensionContext context, Throwable throwable){
-WebDriver driver = getDriver(context);
+    public void testFailed(ExtensionContext context, Throwable throwable) {
+        WebDriver driver = getDriver(context);
         Allure.getLifecycle().addAttachment(
                 "Screenshot",
-                "image/png","png",
-                ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)
+                "image/png", "png",
+                ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)
         );
     }
 
     @Override
-    public void testDisabled(ExtensionContext context, Optional<String> reason){
-getDriver(context).close();
-    }
-
-    @Override
-    public void testSuccessful(ExtensionContext context){
+    public void testDisabled(ExtensionContext context, Optional<String> reason) {
         getDriver(context).close();
     }
 
     @Override
-    public void testAborted(ExtensionContext context, Throwable cause){
+    public void testSuccessful(ExtensionContext context) {
         getDriver(context).close();
     }
+
+    @Override
+    public void testAborted(ExtensionContext context, Throwable cause) {
+        getDriver(context).close();
+    }
+
     private WebDriver getDriver(ExtensionContext context) {
         Object instance = context.getTestInstance();
         try {
             Field field = instance.getClass().getDeclaredField("driver");
             field.setAccessible(true);
-            return ((ThreadLocal<WebDriver>)field.get(instance)).get();
-        } catch (NoSuchFieldException | IllegalAccessException e){
+            return ((ThreadLocal<WebDriver>) field.get(instance)).get();
+        } catch (NoSuchFieldException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

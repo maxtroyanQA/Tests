@@ -14,76 +14,42 @@ import static com.codeborne.selenide.Selenide.open;
 @DisplayName("Позитивный тест3")
 
 public class LoginPositiveTests extends TestBase {
-    @ExtendWith(ScreenShooterExtension.class)
 
-//    public void takePhotoByAllure(WebDriver driver){
-//        byte[] screenshotAs = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-//        Allure.addAttachment("Скриншот", new ByteArrayInputStream(screenshotAs));
-//    }
+
+    @ExtendWith(ScreenShooterExtension.class)
     @ParameterizedTest
     @CsvSource(value = {
             "Тест, Т",
-            "Авто Пользователь, 12345678"
-    })
+            "Авто Пользователь, 12345678"})
+
     @DisplayName("Ввод правильного логина и пароля с проверкой авторизации")
     public void PositiveTests(String login, String pass) {
-try {
-    open(properties.startSITE);     //Переход на сайт указанный
+        try {
+            open(properties.startSITE);     //Переход на сайт указанный
 
-    //method chaining (цепочки вызовов)
-    loginPage.setLOGIN(login).setPass(pass)
-            .clickButton();
+            //method chaining (цепочки вызовов)
+            loginPage.setLOGIN(login).setPass(pass)
+                    .clickButton();
 
-    loginPage.foundSiteEdit(loginPage.SITEEDIT)
-            .clickUserAvatar();
-    //сравнение введенного имени пользователя и пароля
-    loginPage.NAME.shouldHave(Condition.text(loginPage.USERLOGIN));
-    loginPage.EMAIL.shouldHave(Condition.text(loginPage.USEREMAIL));
-}catch (Exception e){
-    e.printStackTrace();
-}
+            loginPage.foundSiteEdit(loginPage.SITEEDIT)
+                    .clickUserAvatar();
+            //сравнение введенного имени пользователя и пароля
+            loginPage.NAME.shouldHave(Condition.text(loginPage.USERLOGIN));
+            loginPage.EMAIL.shouldHave(Condition.text(loginPage.USEREMAIL));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-//    @AfterMethod
-//    public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
-//        WebDriver driver = new ChromeDriver();
-//        if (testResult.getStatus() == ITestResult.FAILURE) {
-//            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//            FileUtils.copyFile(scrFile, new File("errorScreenshots\\" + testResult.getName() + "-"
-//                    + Arrays.toString(testResult.getParameters()) +  ".jpg"));
-//        }
-//    }
-//    @Attachment
-//    public String performedActions(ActionSequence actionSequence) {
-//        return actionSequence.toString();
-//    }
-//
-//    @Attachment(value = "Page screenshot", type = "image/png")
-//    public byte[] saveScreenshot(byte[] screenShot) {
-//        return screenShot;
-//    }
-//@Attachment
-//public String performedActions(ActionSequence actionSequence) {
-//    return actionSequence.toString();
-//}
-//
-//    @Attachment(value = "Page screenshot", type = "image/png")
-//    public byte[] saveScreenshot(byte[] screenShot) {
-//        return screenShot;
-//    }
-@Attachment
-public String performedActions(ActionS actionSequence) {
-    return actionSequence.toString();
-}
+
+    @Attachment
+    public String performedActions(ActionSequence actionSequence) {
+        return actionSequence.toString();
+    }
 
     @Attachment(value = "Page screenshot", type = "image/png")
     public byte[] saveScreenshot(byte[] screenShot) {
         return screenShot;
     }
 }
-
-
-
-
-
 

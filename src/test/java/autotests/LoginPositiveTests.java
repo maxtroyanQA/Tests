@@ -2,6 +2,8 @@ package autotests;
 
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.junit5.ScreenShooterExtension;
+import io.qameta.allure.Attachment;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,7 +14,7 @@ import static com.codeborne.selenide.Selenide.open;
 @DisplayName("Позитивный тест3")
 
 public class LoginPositiveTests extends TestBase {
-    @ExtendWith(ScreenshotExtension.class)
+    @ExtendWith(ScreenShooterExtension.class)
 
 //    public void takePhotoByAllure(WebDriver driver){
 //        byte[] screenshotAs = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
@@ -42,6 +44,15 @@ try {
 }
     }
 
+//    @AfterMethod
+//    public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
+//        WebDriver driver = new ChromeDriver();
+//        if (testResult.getStatus() == ITestResult.FAILURE) {
+//            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//            FileUtils.copyFile(scrFile, new File("errorScreenshots\\" + testResult.getName() + "-"
+//                    + Arrays.toString(testResult.getParameters()) +  ".jpg"));
+//        }
+//    }
 //    @Attachment
 //    public String performedActions(ActionSequence actionSequence) {
 //        return actionSequence.toString();
@@ -51,7 +62,24 @@ try {
 //    public byte[] saveScreenshot(byte[] screenShot) {
 //        return screenShot;
 //    }
+//@Attachment
+//public String performedActions(ActionSequence actionSequence) {
+//    return actionSequence.toString();
+//}
+//
+//    @Attachment(value = "Page screenshot", type = "image/png")
+//    public byte[] saveScreenshot(byte[] screenShot) {
+//        return screenShot;
+//    }
+@Attachment
+public String performedActions(ActionS actionSequence) {
+    return actionSequence.toString();
+}
 
+    @Attachment(value = "Page screenshot", type = "image/png")
+    public byte[] saveScreenshot(byte[] screenShot) {
+        return screenShot;
+    }
 }
 
 

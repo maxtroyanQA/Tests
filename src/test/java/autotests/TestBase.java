@@ -34,7 +34,7 @@ public class TestBase {
         Configuration.timeout = Duration.of(1, ChronoUnit.MINUTES).toMillis();
         // Выбор браузера для открытия
         // Браузер default Chrome
-        Configuration.reportsFolder = "C:\\Users\\WORK\\Tests\\target\\Screen";
+        Configuration.reportsFolder = "C:\\Users\\WORK\\Tests\\target\\allure-results";
         Configuration.browser = "chrome";
         // Установка размер окра браузера
         Configuration.startMaximized = true;

@@ -39,17 +39,20 @@ public class LoginPositiveTests extends TestBase {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
-
-
     @Attachment
-    public String performedActions(ActionSequence actionSequence) {
-        return actionSequence.toString();
+        public String performedActions(ActionSequence actionSequence) {
+            return actionSequence.toString();
+        }
+
+        @Attachment(value = "Page screenshot", type = "image/png")
+        public byte[] saveScreenshot(byte[] screenShot) {
+            return screenShot;
     }
 
-    @Attachment(value = "Page screenshot", type = "image/png")
-    public byte[] saveScreenshot(byte[] screenShot) {
-        return screenShot;
-    }
+
+//
+
 }
 

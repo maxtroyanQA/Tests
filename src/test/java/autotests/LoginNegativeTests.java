@@ -12,7 +12,7 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 @ExtendWith(ScreenshotExtension.class)
 @DisplayName("Негативный тест")
 public class LoginNegativeTests extends TestBase {
-
+    @ExtendWith(ScreenshotExtension.class)
     @Test
     @DisplayName("Ввод неправильного логина и пароля")
     void incorrectUserNameAndPassword() {

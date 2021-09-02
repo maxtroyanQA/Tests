@@ -18,9 +18,10 @@ public class TestBase {
     public static AuthorizedTestBase authorized;
     public static TypesProperties properties;
     public static Properties resource;
+
     //WebDriver driver = new ChromeDriver();
     @BeforeEach
-        //Конфигурация браузера
+    //Конфигурация браузера
     void setUp() throws IOException {
 
         loginPage = new LoginPage();

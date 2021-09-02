@@ -1,8 +1,15 @@
 package autotests;
 
+import com.codeborne.selenide.WebDriverRunner;
+import io.qameta.allure.Allure;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
+import java.io.ByteArrayInputStream;
+import java.lang.reflect.Field;
 import java.util.Optional;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -12,7 +19,9 @@ public class ScreenshotExtension implements TestWatcher {
 
     @Override
     public void testFailed(ExtensionContext context, Throwable cause) {
-        System.out.println("Ypal");
+
+        Allure.addAttachment("Any text", new ByteArrayInputStream(((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES)));
+
 //        WebDriver driver = getDriver(context);
 //        System.out.println("testFailed");
 //        Allure.getLifecycle().addAttachment(
@@ -41,14 +50,14 @@ public class ScreenshotExtension implements TestWatcher {
 
     }
 
-//    private WebDriver getDriver(ExtensionContext context) {
-//        Object instance = context.getTestInstance();
-//        try {
-//            Field field = instance.getClass().getDeclaredField("driver");
-//            field.setAccessible(true);
-//            return ((ThreadLocal<WebDriver>) field.get(instance)).get();
-//        } catch (NoSuchFieldException | IllegalAccessException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+    private WebDriver getDriver(ExtensionContext context) {
+        Object instance = context.getTestInstance();
+        try {
+            Field field = instance.getClass().getDeclaredField("driver");
+            field.setAccessible(true);
+            return ((ThreadLocal<WebDriver>) field.get(instance)).get();
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

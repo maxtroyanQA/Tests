@@ -4,6 +4,8 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -24,6 +26,7 @@ public class TestBase {
         authorized = new AuthorizedTestBase();
         resource = new Properties();
         properties = new TypesProperties();
+       // WebDriver driver = new WebDriver();
 
         resource.load(ClassLoader.getSystemResourceAsStream("app.properties"));
 

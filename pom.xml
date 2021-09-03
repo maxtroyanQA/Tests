@@ -23,81 +23,93 @@
             <version>5.7.0</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.7.2</version>
             <scope>compile</scope>
         </dependency>
+
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>4.4.3</version>
             <scope>compile</scope>
         </dependency>
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
+
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <!--suppress UnresolvedMavenProperty -->
             <version>5.23.2</version>
         </dependency>
+
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>13.0</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-jnigen-loader</artifactId>
             <version>2.2.0</version>
         </dependency>
 
-
         <dependency>
             <groupId>ru.yandex.qatools.htmlelements</groupId>
             <artifactId>htmlelements-java</artifactId>
             <version>1.19</version> <!-- 1.18+ is SELENIUM 3.5.1+ compatible -->
         </dependency>
+
         <dependency>
             <groupId>ru.qatools.commons</groupId>
             <artifactId>properties</artifactId>
             <version>2.0.RC6</version>
         </dependency>
+
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
             <version>2.14.0</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
             <version>5.7.0</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.20</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>ru.yandex.qatools.ashot</groupId>
             <artifactId>ashot</artifactId>
             <version>1.5.4</version>
         </dependency>
+
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-selenide</artifactId>
             <version>2.13.9</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -105,19 +117,34 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp-urlconnection</artifactId>
+            <version>4.10.0-RC1</version>
+        </dependency>
+        <dependency>
+            <groupId>QA</groupId>
+            <artifactId>autotest</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <!-- latest version (2.20.1) does not work well with JUnit5 -->
                 <version>2.22.1</version>
+
+
                 <dependencies>
                     <dependency>
                         <groupId>org.junit.platform</groupId>
                         <artifactId>junit-platform-surefire-provider</artifactId>
                         <version>1.2.0</version>
                     </dependency>
+
                     <dependency>
                         <groupId>org.junit.jupiter</groupId>
                         <artifactId>junit-jupiter-engine</artifactId>
@@ -137,6 +164,7 @@
                     </dependency>
                 </dependencies>
                 <configuration>
+                    <testFailureIgnore>false</testFailureIgnore>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
@@ -159,11 +187,7 @@
                 <version>2.9</version>
                 <configuration>
                     <reportVersion>2.13.4</reportVersion>
-                    <!--                    <allureDownloadUrl>https://github.com/allure-framework/allure2/releases/download/%s/allure-%s.zip</allureDownloadUrl
-                    <!-                    <installDirectory>${project.build.directory}</installDirectory>-->
-                    <allureDownloadUrl>
-                        https://repo1.maven.org/maven2/io/qameta/allure/allure-commandline/2.13.4/allure-commandline-2.13.4.zip
-                    </allureDownloadUrl>
+                    <reportDirectory>allure-report</reportDirectory>
                     <resultsDirectory>allure-results</resultsDirectory>
                 </configuration>
             </plugin>

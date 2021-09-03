@@ -1,6 +1,7 @@
 package autotests;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.junit5.ScreenShooterExtension;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,10 +10,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
-@ExtendWith(ScreenshotExtension.class)
+@ExtendWith(ScreenShooterExtension.class)
 @DisplayName("Негативный тест")
 public class LoginNegativeTests extends TestBase {
-    @ExtendWith(ScreenshotExtension.class)
+
     @Test
     @DisplayName("Ввод неправильного логина и пароля")
     void incorrectUserNameAndPassword() {

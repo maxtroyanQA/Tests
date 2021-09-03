@@ -35,6 +35,9 @@ public class TypesProperties extends TestBase {
     @Property("LOGIN_TEST3")
     protected String LOGIN_TEST3;
 
+    @Property("REQUEST_URL")
+    protected String REQUEST_URL;
+
 
 //    @NotNull
 //    private String EV(){

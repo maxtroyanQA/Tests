@@ -3,20 +3,20 @@ package autotests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.junit5.ScreenShooterExtension;
-import io.qameta.allure.Attachment;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.webdriver;
+import static com.codeborne.selenide.WebDriverConditions.url;
 
 @DisplayName("Позитивный тест3")
-
+@ExtendWith(ScreenShooterExtension.class)
 public class LoginPositiveTests extends TestBase {
 
 
-    @ExtendWith(ScreenShooterExtension.class)
     @ParameterizedTest
     @CsvSource(value = {
             "Тест, Т",
@@ -24,35 +24,24 @@ public class LoginPositiveTests extends TestBase {
 
     @DisplayName("Ввод правильного логина и пароля с проверкой авторизации")
     public void PositiveTests(String login, String pass) {
+
         try {
-            open(properties.startSITE);     //Переход на сайт указанный
+            //Переход на сайт указанный
+            open(properties.startSITE);
 
             //method chaining (цепочки вызовов)
             loginPage.setLOGIN(login).setPass(pass)
                     .clickButton();
 
-            loginPage.foundSiteEdit(loginPage.SITEEDIT)
-                    .clickUserAvatar();
+            webdriver().shouldHave(url(loginPage.SITEEDIT));
+
+            loginPage.clickUserAvatar();
             //сравнение введенного имени пользователя и пароля
             loginPage.NAME.shouldHave(Condition.text(loginPage.USERLOGIN));
             loginPage.EMAIL.shouldHave(Condition.text(loginPage.USEREMAIL));
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-    @Attachment
-        public String performedActions(ActionSequence actionSequence) {
-            return actionSequence.toString();
-        }
-
-        @Attachment(value = "Page screenshot", type = "image/png")
-        public byte[] saveScreenshot(byte[] screenShot) {
-            return screenShot;
-    }
-
-
-//
-
 }
 

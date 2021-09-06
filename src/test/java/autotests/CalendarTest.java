@@ -5,17 +5,17 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import java.io.IOException;
+
 @DisplayName("Тесты с календарём")
 @ExtendWith(ScreenshotExtension.class)
 public class CalendarTest extends TestBase {
 
     @BeforeEach
-    void preconditionCalendarTest() {
-        authorized.Authorized();
+    void preconditionCalendarTest() throws IOException {
+        authorized.authorizedCookie();
 
-        loginPage.clickMenu()
-                .clickMenuCalendar()
-                .foundSiteCalendar(loginPage.SITECALENDAR)
+        loginPage.foundSiteCalendar(loginPage.SITECALENDAR)
                 .loadCalendar();
     }
 

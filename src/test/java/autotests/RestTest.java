@@ -12,7 +12,8 @@ import java.net.CookiePolicy;
 import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class RestTest extends TestBase {
 
@@ -31,25 +32,24 @@ public class RestTest extends TestBase {
 
         RequestBody formBody = new FormBody.Builder()
                 .add("_csrf_token", "")
-                .add("_username", "Авто Пользователь")
-                .add("_password", "12345678")
+                .add("_username", properties.LOGIN_P)
+                .add("_password", properties.PASSWORD_P)
                 .add("_submit", "Войти")
                 .build();
 
         Request request = new Request.Builder()
-                .url("https://tt-develop.quality-lab.ru/")
+                .url(properties.startSITE + "/login_check")
                 .addHeader("cookie", "PHPSESSID=5416dfb20f97f250dc8ed6d9d03a6d8e")
-                .addHeader("path", "/login_check")
                 .post(formBody)
                 .build();
 
 
-        Call call = client.newCall(request);
+        Response response = client.newCall(request).execute();
 
-        Response response = call.execute();
-       // assertThat(call.execute().code(), equalTo(200));
 
-        open(loginPage.SITE);
+       assertThat(response.code(), equalTo(302));
+
+        open( properties.startSITE + "/login");
 
         WebDriver driver = WebDriverRunner.getWebDriver();
         driver.manage().deleteAllCookies();
@@ -65,8 +65,8 @@ public class RestTest extends TestBase {
                     .addCookie(cookie);
         });
 
-        open(loginPage.SITECALENDAR);
-        sleep(10000);
+        open(properties.startSITE + "/calendar");
+        //sleep(3000);
     }
 
 

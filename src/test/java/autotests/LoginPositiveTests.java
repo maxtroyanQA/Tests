@@ -12,14 +12,14 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
-@DisplayName("Позитивный тест3")
+@DisplayName("Позитивный тест")
 @ExtendWith(ScreenShooterExtension.class)
 public class LoginPositiveTests extends TestBase {
 
 
     @ParameterizedTest
     @CsvSource(value = {
-            "Тест, Т",
+            "Авто, 1234",
             "Авто Пользователь, 12345678"})
 
     @DisplayName("Ввод правильного логина и пароля с проверкой авторизации")

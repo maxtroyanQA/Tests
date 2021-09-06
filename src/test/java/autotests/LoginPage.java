@@ -33,10 +33,10 @@ class LoginPage extends TestBase {
     protected String WRONGLOGIN = "TestUser";
     protected String WRONGPASS = "Password";
     protected String WORKDAYXPATH =
-            "//a[@class='fc-day-grid-event fc-h-event " +
-                    "fc-event fc-start fc-end schedule-badge " +
-                    "schedule-badge--block schedule-badge--default " +
-                    "schedule-badge--']";
+            "//*[@class='fc-content-skeleton']/table/tbody/tr[1]/td/" +
+                    "a[@class='fc-day-grid-event fc-h-event fc-event " +
+                    "fc-start fc-end schedule-badge schedule-badge--block " +
+                    "schedule-badge--default schedule-badge--']";
     protected String WEEKENDDAYXPATH =
             "//a[@class='fc-day-grid-event fc-h-event fc-event " +
                     "fc-start fc-end schedule-badge " +
@@ -206,6 +206,7 @@ class LoginPage extends TestBase {
         List<WebElement> workDays = ALLDAYCALENDAR.findElements
                 (By.xpath(WORKDAYXPATH));
         for (WebElement workDay : workDays) {
+
             if (workDays.size() > 0) {
             }
         }

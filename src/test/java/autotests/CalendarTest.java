@@ -1,5 +1,6 @@
 package autotests;
 
+import com.codeborne.selenide.junit5.ScreenShooterExtension;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,8 +8,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.IOException;
 
+
 @DisplayName("Тесты с календарём")
-@ExtendWith(ScreenshotExtension.class)
+@ExtendWith(ScreenShooterExtension.class)
 public class CalendarTest extends TestBase {
 
     @BeforeEach

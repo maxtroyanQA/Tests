@@ -36,12 +36,16 @@ public class TestBase {
         // Браузер default Chrome
         //Configuration.reportsFolder = "C:\\Users\\WORK\\Tests\\Screenshot";
         Configuration.browser = "chrome";
+
         // Установка размер окра браузера
         Configuration.startMaximized = true;
+
         //Configuration.browserSize = "1500x1500";
         // Очистка кэша(форм) от ранних записей
         WebDriverRunner.clearBrowserCache();
+
         Configuration.timeout = 6000;
+
         //SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)

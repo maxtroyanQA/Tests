@@ -2,27 +2,23 @@ package autotests;
 
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.junit5.ScreenShooterExtension;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import com.codeborne.selenide.testng.ScreenShooter;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
-@DisplayName("Позитивный тест")
-@ExtendWith(ScreenShooterExtension.class)
+
+@Listeners({ ScreenShooter.class})
 public class LoginPositiveTests extends TestBase {
 
+@Parameters({
+        "Авто", "1234"})
 
-    @ParameterizedTest
-    @CsvSource(value = {
-            "Авто, 1234",
-            "Авто Пользователь, 12345678"})
-
-    @DisplayName("Ввод правильного логина и пароля с проверкой авторизации")
+    @Test
     public void PositiveTests(String login, String pass) {
 
         try {

@@ -2,8 +2,8 @@ package autotests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverConditions;
 import io.qameta.allure.Step;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -11,9 +11,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
-import static com.codeborne.selenide.WebDriverRunner.url;
+import static com.codeborne.selenide.Selenide.*;
 
 
 class LoginPage extends TestBase {
@@ -112,7 +110,8 @@ class LoginPage extends TestBase {
         // Метод проверки совпадения URL-адреса (домашняя странница)
     LoginPage foundSiteEdit(String foundSiteEditSet) {
 
-        Assertions.assertEquals(url(), foundSiteEditSet);
+        webdriver().shouldHave(WebDriverConditions.url(foundSiteEditSet));
+
         return this;
     }
 
@@ -166,7 +165,8 @@ class LoginPage extends TestBase {
         // Метод проверки совпадения URL-адреса (страница календарь)
     LoginPage foundSiteCalendar(String foundSiteCalendarSet) {
 
-        Assertions.assertEquals(url(), foundSiteCalendarSet);
+        webdriver().shouldHave(WebDriverConditions.url(foundSiteCalendarSet));
+
         return this;
     }
 

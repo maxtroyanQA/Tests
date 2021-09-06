@@ -4,8 +4,8 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -20,7 +20,7 @@ public class TestBase {
     public static Properties resource;
 
     //WebDriver driver = new ChromeDriver();
-    @BeforeEach
+    @BeforeMethod
     //Конфигурация браузера
     void setUp() throws IOException {
 
@@ -52,7 +52,7 @@ public class TestBase {
                 .savePageSource(false));
     }
 
-    @AfterEach
+    @AfterMethod
         // Закрытие браузера после теста
 
     void exit() throws InterruptedException {

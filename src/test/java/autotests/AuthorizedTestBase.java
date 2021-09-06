@@ -2,9 +2,10 @@ package autotests;
 
 import com.codeborne.selenide.WebDriverRunner;
 import okhttp3.*;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
 import java.net.CookieManager;
@@ -17,7 +18,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AuthorizedTestBase extends TestBase {
 
-    @BeforeEach
+    @BeforeMethod
     void authorizedLogPass() {
 
         //System.out.println(System.getenv("URL_E"));
@@ -31,7 +32,7 @@ public class AuthorizedTestBase extends TestBase {
                 .clickButton();
     }
 
-    @BeforeEach
+    @BeforeMethod
     public void authorizedCookie() throws IOException {
 
         CookieManager cookieManager = new CookieManager();

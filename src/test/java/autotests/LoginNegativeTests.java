@@ -1,29 +1,27 @@
 package autotests;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.junit5.ScreenShooterExtension;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import com.codeborne.selenide.WebDriverConditions;
+import com.codeborne.selenide.testng.ScreenShooter;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.WebDriverRunner.url;
+import static com.codeborne.selenide.Selenide.webdriver;
 
 
-@ExtendWith(ScreenShooterExtension.class)
-@DisplayName("Негативный тест")
+@Listeners({ ScreenShooter.class})
+
 public class LoginNegativeTests extends TestBase {
 
 
     @Test
-    @DisplayName("Ввод неправильного логина и пароля")
     void incorrectUserNameAndPassword() {
 
         open(properties.startSITE);
         loginPage.ALLPAGE.shouldNot(Condition.text(loginPage.FOUNDTEXT));
 
-        Assertions.assertEquals(url(), loginPage.SITELOGIN);
+        webdriver().shouldHave(WebDriverConditions.url(loginPage.SITELOGIN));
         loginPage.setWrongLogin()
                 .setWrongPass()
                 .clickButton();

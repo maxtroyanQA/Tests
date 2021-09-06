@@ -1,28 +1,24 @@
 package autotests;
 
-import com.codeborne.selenide.junit5.ScreenShooterExtension;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import com.codeborne.selenide.testng.ScreenShooter;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 
 import java.io.IOException;
 
 
-@DisplayName("Тесты с календарём")
-@ExtendWith(ScreenShooterExtension.class)
+@Listeners({ScreenShooter.class})
 public class CalendarTest extends TestBase {
 
-    @BeforeEach
+    @BeforeMethod
     void preconditionCalendarTest() throws IOException {
         authorized.authorizedCookie();
 
         loginPage.foundSiteCalendar(loginPage.SITECALENDAR)
                 .loadCalendar();
     }
-
     @Test
-    @DisplayName("Сравнение даты и проверка рабочих/выходных дней")
     void calendarTest1() {
         loginPage.comparisonDate()
                 .checkWorkDay()
@@ -31,7 +27,6 @@ public class CalendarTest extends TestBase {
     }
 
     @Test
-    @DisplayName("Выбор месяца 'Сентябрь' и проверка рабочих/выходных дней")
     void calendarTest2() {
         loginPage.clickNextMonth()
                 .loadCalendar()
@@ -40,7 +35,6 @@ public class CalendarTest extends TestBase {
     }
 
     @Test
-    @DisplayName("Выбор другого пользователя и проверка рабочих/выходных дней")
     void calendarTest3() {
         loginPage.selectAnotherUser()
                 .loadCalendar()

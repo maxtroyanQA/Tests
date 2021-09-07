@@ -55,9 +55,11 @@ public class TestBase {
     @AfterMethod
         // Закрытие браузера после теста
 
-    void exit() throws InterruptedException {
-       // screenshot();
-       // sleep(5000);
+    void exit() {
+        /*
+         screenshot();
+         sleep(5000);
+        */
         closeWebDriver();
     }
 }

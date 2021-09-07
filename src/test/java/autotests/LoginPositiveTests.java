@@ -12,21 +12,20 @@ import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
 
-@Listeners({ ScreenShooter.class})
+@Listeners({ScreenShooter.class})
 public class LoginPositiveTests extends TestBase {
 
-@Parameters({
-        "Авто", "1234"})
-
-    @Test
-    public void PositiveTests(String login, String pass) {
+    @Parameters({
+            "user", "pwd"})
+    @Test(description = "Проверка пользовательских данных")
+    public void PositiveTests(String user, String pwd) {
 
         try {
             //Переход на сайт указанный
             open(properties.startSITE);
 
             //method chaining (цепочки вызовов)
-            loginPage.setLOGIN(login).setPass(pass)
+            loginPage.setLOGIN(user).setPass(pwd)
                     .clickButton();
 
             webdriver().shouldHave(url(loginPage.SITEEDIT));

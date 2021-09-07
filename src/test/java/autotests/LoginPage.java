@@ -238,7 +238,7 @@ class LoginPage extends TestBase {
 
     }
 
-    @Step("Выбор месяца сентябрь")
+    @Step("Выбор месяца: октябрь")
         // Метод нажатия на месяц "Сентябрь"
     LoginPage clickNextMonth() {
 

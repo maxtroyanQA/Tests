@@ -10,12 +10,12 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.webdriver;
 
 
-@Listeners({ ScreenShooter.class})
+@Listeners({ScreenShooter.class})
 
 public class LoginNegativeTests extends TestBase {
 
 
-    @Test
+    @Test(description = "Проверка появления надписи 'Invalid credentials.'")
     void incorrectUserNameAndPassword() {
 
         open(properties.startSITE);

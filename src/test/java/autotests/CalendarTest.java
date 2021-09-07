@@ -18,7 +18,8 @@ public class CalendarTest extends TestBase {
         loginPage.foundSiteCalendar(loginPage.SITECALENDAR)
                 .loadCalendar();
     }
-    @Test
+
+    @Test(description = "Сравнение текущей даты календаря")
     void calendarTest1() {
         loginPage.comparisonDate()
                 .checkWorkDay()
@@ -26,7 +27,7 @@ public class CalendarTest extends TestBase {
 
     }
 
-    @Test
+    @Test(description = "Выбор месяца: октябрь")
     void calendarTest2() {
         loginPage.clickNextMonth()
                 .loadCalendar()
@@ -34,7 +35,7 @@ public class CalendarTest extends TestBase {
                 .checkWeekendDay();
     }
 
-    @Test
+    @Test(description = "Выбор пользователя: 'Абдулин Ринат'")
     void calendarTest3() {
         loginPage.selectAnotherUser()
                 .loadCalendar()

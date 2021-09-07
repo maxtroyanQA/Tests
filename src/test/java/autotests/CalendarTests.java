@@ -9,7 +9,7 @@ import java.io.IOException;
 
 
 @Listeners({ScreenShooter.class})
-public class CalendarTest extends TestBase {
+public class CalendarTests extends TestBase {
 
     @BeforeMethod
     void preconditionCalendarTest() throws IOException {
@@ -19,7 +19,7 @@ public class CalendarTest extends TestBase {
                 .loadCalendar();
     }
 
-    @Test(description = "Сравнение текущей даты календаря")
+    @Test(description = "Сравнение текущей даты календаря", enabled = false)
     void calendarTest1() {
         loginPage.comparisonDate()
                 .checkWorkDay()
@@ -27,7 +27,7 @@ public class CalendarTest extends TestBase {
 
     }
 
-    @Test(description = "Выбор месяца: октябрь")
+    @Test(description = "Выбор месяца: октябрь", enabled = false)
     void calendarTest2() {
         loginPage.clickNextMonth()
                 .loadCalendar()
@@ -35,7 +35,7 @@ public class CalendarTest extends TestBase {
                 .checkWeekendDay();
     }
 
-    @Test(description = "Выбор пользователя: 'Абдулин Ринат'")
+    @Test(description = "Выбор пользователя: 'Абдулин Ринат'", enabled = false)
     void calendarTest3() {
         loginPage.selectAnotherUser()
                 .loadCalendar()

@@ -13,11 +13,19 @@ import static com.codeborne.selenide.WebDriverConditions.url;
 
 
 @Listeners({ScreenShooter.class})
-public class LoginPositiveTests extends TestBase {
+public class LoginPositiveTest extends TestBase {
+
+//    @DataProvider
+//    public Object[][] testUser () {
+//        return new Object[][] {
+//                "Авто Пользователь", "12345678"],
+//          ["user1", "1222"]
+//     }
+//    }
 
     @Parameters({
             "user", "pwd"})
-    @Test(description = "Проверка пользовательских данных")
+    @Test(description = "Проверка пользовательских данных", enabled = false)
     public void PositiveTests(String user, String pwd) {
 
         try {

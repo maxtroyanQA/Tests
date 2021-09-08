@@ -12,6 +12,7 @@ import java.util.List;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverConditions.url;
 
 
 class LoginPage extends TestBase {
@@ -30,6 +31,11 @@ class LoginPage extends TestBase {
     protected String FOUNDTEXT = "Invalid credentials.";
     protected String WRONGLOGIN = "TestUser";
     protected String WRONGPASS = "Password";
+    protected String COOKIE = "PHPSESSID=5416dfb20f97f250dc8ed6d9d03a6d8e";
+    protected String BASEPATH = "/api/v2/public";
+    protected String KEY = "wvS9fmlcgT6jOIO6tyhESV55F6dbNpk3PeWkobf8";
+    protected int PORT = 443;
+
     protected String WORKDAYXPATH =
             "//*[@class='fc-content-skeleton']/table/tbody/tr[1]/td/" +
                     "a[@class='fc-day-grid-event fc-h-event fc-event " +
@@ -108,10 +114,8 @@ class LoginPage extends TestBase {
 
     @Step("Поиск текста 'Invalid credentials.'")
         // Метод проверки совпадения URL-адреса (домашняя странница)
-    LoginPage foundSiteEdit(String foundSiteEditSet) {
-
-        webdriver().shouldHave(WebDriverConditions.url(foundSiteEditSet));
-
+    LoginPage foundSiteEdit() {
+        webdriver().shouldHave(url(loginPage.SITEEDIT));
         return this;
     }
 
@@ -163,9 +167,9 @@ class LoginPage extends TestBase {
 
     @Step("Проверка что произошел переход на URL: https://tt-develop.quality-lab.ru/calendar/")
         // Метод проверки совпадения URL-адреса (страница календарь)
-    LoginPage foundSiteCalendar(String foundSiteCalendarSet) {
+    LoginPage foundSiteCalendar() {
 
-        webdriver().shouldHave(WebDriverConditions.url(foundSiteCalendarSet));
+        webdriver().shouldHave(WebDriverConditions.url(SITECALENDAR));
 
         return this;
     }
@@ -239,7 +243,7 @@ class LoginPage extends TestBase {
     }
 
     @Step("Выбор месяца: октябрь")
-        // Метод нажатия на месяц "Сентябрь"
+        // Метод нажатия на месяц "Октябрь"
     LoginPage clickNextMonth() {
 
         CALENDARXPATH.click();
@@ -255,7 +259,48 @@ class LoginPage extends TestBase {
         SELECTUSER.click();
         SELECTNEWUSER.click();
         APPLYCALENDAR.click();
-        return new LoginPage();
+        return this;
     }
 
+    @Step("Проверка пользователя")
+        // Метод проверки пользователя
+    LoginPage checkLogin() {
+        loginPage.NAME.shouldHave(Condition.text(loginPage.USERLOGIN));
+        return this;
+    }
+
+    @Step("Проверка email")
+        // Метод проверки email
+    LoginPage checkEmail() {
+        loginPage.EMAIL.shouldHave(Condition.text(loginPage.USEREMAIL));
+        return this;
+    }
+
+    @Step("Надпись 'Invalid credentials.' отсутствует")
+        // Метод проверки отсутствия надписи Invalid credentials. на странице
+    LoginPage checkNotInvalid() {
+        loginPage.ALLPAGE.shouldNot(Condition.text(loginPage.FOUNDTEXT));
+        return this;
+    }
+
+    @Step("Проверка URL:.../login")
+        // Метод проверки URL .../login
+    LoginPage checkSiteLogin() {
+        webdriver().shouldHave(WebDriverConditions.url(loginPage.SITELOGIN));
+        return this;
+    }
+
+    @Step("Надпись 'Invalid credentials.' присутствует")
+        // Метод проверки наличия надписи Invalid credentials. на странице
+    LoginPage checkInvalid() {
+        loginPage.ALLPAGE.shouldHave(Condition.text(loginPage.FOUNDTEXT));
+        return this;
+    }
+
+    @Step("Открытие стартовой страницы ТТ")
+        // Метод открытия стартовой страницы
+    LoginPage openStartSite() {
+        open(properties.startSITE);
+        return this;
+    }
 }

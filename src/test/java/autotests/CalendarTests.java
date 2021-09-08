@@ -13,33 +13,51 @@ public class CalendarTests extends TestBase {
 
     @BeforeMethod
     void preconditionCalendarTest() throws IOException {
+
         authorized.authorizedCookie();
 
-        loginPage.foundSiteCalendar(loginPage.SITECALENDAR)
+        loginPage.foundSiteCalendar()
                 .loadCalendar();
     }
 
-    @Test(description = "Сравнение текущей даты календаря", enabled = false)
+    @Test(description = "Сравнение текущей даты календаря")
     void calendarTest1() {
+
+        try {
         loginPage.comparisonDate()
                 .checkWorkDay()
                 .checkWeekendDay();
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    @Test(description = "Выбор месяца: октябрь", enabled = false)
+    @Test(description = "Выбор месяца: октябрь")
     void calendarTest2() {
+
+        try {
         loginPage.clickNextMonth()
                 .loadCalendar()
                 .checkWorkDay()
                 .checkWeekendDay();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    @Test(description = "Выбор пользователя: 'Абдулин Ринат'", enabled = false)
+    @Test(description = "Выбор пользователя: 'Абдулин Ринат'")
     void calendarTest3() {
+
+            try {
         loginPage.selectAnotherUser()
                 .loadCalendar()
                 .checkWorkDay()
                 .checkWeekendDay();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
     }
 }

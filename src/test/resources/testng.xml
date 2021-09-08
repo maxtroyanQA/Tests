@@ -7,7 +7,7 @@
 <suite thread-count="10" parallel="tests" name="Тесты" verbose="10">
 
 
-    <test name="Позитивный тест (user: Авто Пользователь  pwd: 12345678)" enabled="true">
+    <test name="Позитивный тест (user: Авто Пользователь  pwd: 12345678)">
 
         <parameter name="user" value="Авто Пользователь"/>
         <parameter name="pwd" value="12345678"/>
@@ -18,7 +18,7 @@
     </test>
 
 
-    <test name="Позитивный тест (user: 321  pwd: 1234)" enabled="true">
+    <test name="Позитивный тест (user: 321  pwd: 1234)">
 
         <parameter name="user" value="321"/>
         <parameter name="pwd" value="1234"/>
@@ -29,7 +29,7 @@
     </test>
 
 
-    <test name="Позитивный тест (user: 231  pwd: 1234)" enabled="true">
+    <test name="Позитивный тест (user: 231  pwd: 1234)">
 
         <parameter name="user" value="231"/>
         <parameter name="pwd" value="1234"/>
@@ -40,19 +40,18 @@
     </test>
 
 
-    <test name="Позитивный тест (user: 213  pwd: 1234)" enabled="true">
+    <test name="Позитивный тест (user: 213  pwd: 1234)">
 
         <parameter name="user" value="213"/>
         <parameter name="pwd" value="1234"/>
 
         <classes>
-
             <class name="autotests.LoginPositiveTest"/>
         </classes>
     </test>
 
 
-    <test name="Негативный тест" enabled="true">
+    <test name="Негативный тест">
 
         <classes>
             <class name="autotests.LoginNegativeTest"/>
@@ -60,7 +59,7 @@
     </test>
 
 
-    <test name="Тест календаря" parallel="methods" enabled="true">
+    <test name="Тест календаря" parallel="methods">
 
         <classes>
             <class name="autotests.CalendarTests"/>
@@ -68,10 +67,12 @@
     </test>
 
 
-    <test name="Тест API">
+    <test name="Тест API" parallel="methods">
 
         <classes>
             <class name="autotests.GetHolidaysTests"/>
         </classes>
     </test>
+
+
 </suite>

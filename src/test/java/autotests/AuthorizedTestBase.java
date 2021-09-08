@@ -21,8 +21,6 @@ public class AuthorizedTestBase extends TestBase {
     @BeforeMethod
     void authorizedLogPass() {
 
-        //System.out.println(System.getenv("URL_E"));
-
         open(properties.startSITE);
         //Переход на сайт указанный в LoginPage->SITE
 
@@ -54,8 +52,7 @@ public class AuthorizedTestBase extends TestBase {
 
         Request request = new Request.Builder()
                 .url(properties.startSITE + "/login_check")
-                .addHeader("cookie",
-                        "PHPSESSID=5416dfb20f97f250dc8ed6d9d03a6d8e")
+                .addHeader("cookie", loginPage.COOKIE)
                 .post(formBody)
                 .build();
 
@@ -82,7 +79,6 @@ public class AuthorizedTestBase extends TestBase {
         });
 
         open(properties.startSITE + "/calendar");
-        //sleep(3000);
     }
 }
 

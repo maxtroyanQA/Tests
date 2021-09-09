@@ -4,56 +4,44 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
 import java.util.Properties;
 
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 
-
 public class TestBase {
     public static LoginPage loginPage;
     public static AuthorizedTestBase authorized;
-    public static TypesProperties properties;
     public static Properties resource;
+    public static UserTests userTests;
+    public static StepBase step;
 
     //WebDriver driver = new ChromeDriver();
-    @BeforeEach
+    @BeforeMethod
     //Конфигурация браузера
     void setUp() throws IOException {
 
         loginPage = new LoginPage();
         authorized = new AuthorizedTestBase();
+        userTests = new UserTests();
+        step = new StepBase();
         resource = new Properties();
-        properties = new TypesProperties();
 
-
-        resource.load(ClassLoader.getSystemResourceAsStream("app.properties"));
-        //Configuration.timeout = Duration.of(1, ChronoUnit.MINUTES).toMillis();
-        // Выбор браузера для открытия
-        // Браузер default Chrome
-        //Configuration.reportsFolder = "C:\\Users\\WORK\\Tests\\Screenshot";
         Configuration.browser = "chrome";
-        // Установка размер окра браузера
         Configuration.startMaximized = true;
-        //Configuration.browserSize = "1500x1500";
-        // Очистка кэша(форм) от ранних записей
         WebDriverRunner.clearBrowserCache();
-        Configuration.timeout = 6000;
-        //SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        Configuration.timeout = 60000;
+
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(false));
     }
 
-    @AfterEach
-        // Закрытие браузера после теста
-
-    void exit() throws InterruptedException {
-       // screenshot();
-       // sleep(5000);
+    @AfterMethod
+    void exit() {
         closeWebDriver();
     }
 }

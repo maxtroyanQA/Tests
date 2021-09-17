@@ -1,8 +1,10 @@
 package autotests;
 
+import assistive.TestBase;
 import com.codeborne.selenide.testng.ScreenShooter;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -11,22 +13,22 @@ import java.io.IOException;
 @Listeners({ScreenShooter.class})
 public class CalendarTests extends TestBase {
 
+
     @BeforeMethod
-    void preconditionCalendarTest() throws IOException {
+    public void preconditionCalendarTest() throws IOException {
 
         authorized.authorizedCookie();
-
-        loginPage.foundSiteCalendar()
-                .loadCalendar();
     }
 
     @Test(description = "Сравнение текущей даты календаря")
-    void calendarTest1() {
+    public void calendarTest1() {
 
         try {
-        loginPage.comparisonDate()
-                .checkWorkDay()
-                .checkWeekendDay();
+            calendarPage.openSiteCalendar()
+                    .foundSiteCalendar()
+                    .loadCalendar()
+                    .comparisonDate()
+                    .checkWorkWeekendDay();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -34,30 +36,35 @@ public class CalendarTests extends TestBase {
     }
 
     @Test(description = "Выбор месяца: октябрь")
-    void calendarTest2() {
+    public void calendarTest2() {
 
         try {
-        loginPage.clickNextMonth()
-                .loadCalendar()
-                .checkWorkDay()
-                .checkWeekendDay();
+            calendarPage.openSiteCalendar()
+                    .foundSiteCalendar()
+                    .loadCalendar()
+                    .clickNextMonth()
+                    .loadCalendar()
+                    .checkWorkWeekendDay();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    @Test(description = "Выбор пользователя: 'Абдулин Ринат'")
-    void calendarTest3() {
+    @Parameters({"NEWUSERCALENDAR"})
+    @Test(description = "Выбор в календаре другого пользователя")
+    public void calendarTest3(String NEWUSERCALENDAR) {
 
-            try {
-        loginPage.selectAnotherUser()
-                .loadCalendar()
-                .checkWorkDay()
-                .checkWeekendDay();
+        try {
+            calendarPage.openSiteCalendar()
+                    .foundSiteCalendar()
+                    .loadCalendar()
+                    .selectAnotherUser(NEWUSERCALENDAR)
+                    .loadCalendar()
+                    .checkWorkWeekendDay();
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

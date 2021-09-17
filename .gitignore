@@ -11,6 +11,7 @@
 # Ignore IDE specific files
 .idea
 /target/
+/temp/
 # Package Files #
 *.jar
 *.war

@@ -1,11 +1,9 @@
-package autotests;
+package assistive;
 
 import com.codeborne.selenide.WebDriverRunner;
 import okhttp3.*;
-
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
 import java.net.CookieManager;
@@ -18,19 +16,22 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AuthorizedTestBase extends TestBase {
 
-    @BeforeMethod
-    void authorizedLogPass() {
 
-        open(properties.startSITE);
-        //Переход на сайт указанный в LoginPage->SITE
+    /**
+     * Авторизация с помощью ввода логина и пароля
+     */
+    public void authorizedLogPass() {
 
-        //method chaining (цепочки вызовов)
+        open(properties.startSITE_P);
+
         loginPage.setLOGIN(properties.LOGIN_P)
                 .setPass(properties.PASSWORD_P)
                 .clickButton();
     }
 
-    @BeforeMethod
+    /**
+     * Авторизация через куки
+     */
     public void authorizedCookie() throws IOException {
 
         CookieManager cookieManager = new CookieManager();
@@ -40,7 +41,7 @@ public class AuthorizedTestBase extends TestBase {
         OkHttpClient client = new OkHttpClient.Builder()
                 .cookieJar(cookieJar)
                 .followRedirects(false)
-                .readTimeout(2, TimeUnit.SECONDS)
+                .readTimeout(5, TimeUnit.SECONDS)
                 .build();
 
         RequestBody formBody = new FormBody.Builder()
@@ -51,18 +52,16 @@ public class AuthorizedTestBase extends TestBase {
                 .build();
 
         Request request = new Request.Builder()
-                .url(properties.startSITE + "/login_check")
-                .addHeader("cookie", loginPage.COOKIE)
+                .url(properties.startSITE_P + "/login_check")
+                .addHeader("cookie", properties.COOKIE_P)
                 .post(formBody)
                 .build();
 
-
         Response response = client.newCall(request).execute();
-
 
         assertThat(response.code(), equalTo(302));
 
-        open(properties.startSITE + "/login");
+        open(properties.startSITE_P + "/login");
 
         WebDriver driver = WebDriverRunner.getWebDriver();
         driver.manage().deleteAllCookies();
@@ -77,8 +76,6 @@ public class AuthorizedTestBase extends TestBase {
             driver.manage()
                     .addCookie(cookie);
         });
-
-        open(properties.startSITE + "/calendar");
     }
 }
 

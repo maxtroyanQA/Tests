@@ -4,46 +4,13 @@
 <!--verbose - количество выведенной информации в консоль после теста
 (min=1 - max=10)    -->
 <!--thread-count - Установка количества потоков-->
-<suite thread-count="10" parallel="tests" name="Тесты" verbose="10">
+<suite thread-count="10" parallel="tests" name="Тесты" verbose="2">
 
 
     <test name="Позитивный тест (user: Авто Пользователь  pwd: 12345678)">
 
-        <parameter name="user" value="Авто Пользователь"/>
-        <parameter name="pwd" value="12345678"/>
-
-        <classes>
-            <class name="autotests.LoginPositiveTest"/>
-        </classes>
-    </test>
-
-
-    <test name="Позитивный тест (user: 321  pwd: 1234)">
-
-        <parameter name="user" value="321"/>
-        <parameter name="pwd" value="1234"/>
-
-        <classes>
-            <class name="autotests.LoginPositiveTest"/>
-        </classes>
-    </test>
-
-
-    <test name="Позитивный тест (user: 231  pwd: 1234)">
-
-        <parameter name="user" value="231"/>
-        <parameter name="pwd" value="1234"/>
-
-        <classes>
-            <class name="autotests.LoginPositiveTest"/>
-        </classes>
-    </test>
-
-
-    <test name="Позитивный тест (user: 213  pwd: 1234)">
-
-        <parameter name="user" value="213"/>
-        <parameter name="pwd" value="1234"/>
+        <parameter name="USER" value="Авто Пользователь"/>
+        <parameter name="PASS" value="12345678"/>
 
         <classes>
             <class name="autotests.LoginPositiveTest"/>
@@ -52,7 +19,8 @@
 
 
     <test name="Негативный тест">
-
+        <parameter name="WRONGUSER" value="TestUser"/>
+        <parameter name="WRONGPASS" value="Password"/>
         <classes>
             <class name="autotests.LoginNegativeTest"/>
         </classes>
@@ -60,7 +28,7 @@
 
 
     <test name="Тест календаря" parallel="methods">
-
+        <parameter name="NEWUSERCALENDAR" value="Абдулин Ринат"/>
         <classes>
             <class name="autotests.CalendarTests"/>
         </classes>

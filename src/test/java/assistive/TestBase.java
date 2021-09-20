@@ -1,11 +1,13 @@
-package autotests;
+package assistive;
 
+import autotests.LogTimeTest;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import pages.LogTimePages;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -13,22 +15,23 @@ import java.util.Properties;
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 
 public class TestBase {
-    public static LoginPage loginPage;
-    public static AuthorizedTestBase authorized;
-    public static Properties resource;
-    public static UserTests userTests;
-    public static StepBase step;
 
-    //WebDriver driver = new ChromeDriver();
+
+    public static AuthorizedTestBase authorized;
+    public static TypesProperties prop;
+    public static LogTimePages logTime;
+    public static Properties resource;
+
     @BeforeMethod
     //Конфигурация браузера
-    void setUp() throws IOException {
+    public void setUp() throws IOException {
 
-        loginPage = new LoginPage();
+
         authorized = new AuthorizedTestBase();
-        userTests = new UserTests();
-        step = new StepBase();
+        prop = new TypesProperties();
+        logTime = new LogTimePages();
         resource = new Properties();
+        resource.load(ClassLoader.getSystemResourceAsStream("app.properties"));
 
         Configuration.browser = "chrome";
         Configuration.startMaximized = true;

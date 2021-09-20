@@ -1,12 +1,10 @@
-package autotests;
+package assistive;
 
 import com.codeborne.selenide.WebDriverRunner;
 import okhttp3.*;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Factory;
 import org.testng.annotations.Parameters;
 
 import java.io.IOException;
@@ -17,10 +15,9 @@ import java.util.concurrent.TimeUnit;
 import static com.codeborne.selenide.Selenide.open;
 
 
-public class AuthorizedTestBase extends TestBase{
+public class AuthorizedTestBase extends TestBase {
 
     @BeforeMethod
-    //@Factory(dataProvider = "loader user")
     @Parameters({"login", "pass"})
     public void authorizedCookie(String login, String pass) throws IOException {
 
@@ -42,14 +39,14 @@ public class AuthorizedTestBase extends TestBase{
                 .build();
 
         Request request = new Request.Builder()
-                .url(loginPage.SITE + "/login_check")
-                .addHeader("cookie", loginPage.COOKIE)
+                .url(prop.SITE_P + "/login_check")
+                .addHeader("cookie", prop.COOKIE_P)
                 .post(formBody)
                 .build();
 
-        Response response = client.newCall(request).execute();
+        client.newCall(request).execute();
 
-        open(loginPage.SITE + "/login");
+        open(prop.SITE_P + "/login");
 
         WebDriver driver = WebDriverRunner.getWebDriver();
         driver.manage().deleteAllCookies();
@@ -64,14 +61,6 @@ public class AuthorizedTestBase extends TestBase{
             driver.manage()
                     .addCookie(cookie);
         });
-
-        open(loginPage.SITE + "/calendar");
     }
-    @DataProvider(name = "loader user")
-    public static Object[][] createData() {
 
-        return new Object[][] {{"Авто Пользователь", "12345678"},
-               // {"Авто Пользователь2","2"}
-        };
-    }
 }

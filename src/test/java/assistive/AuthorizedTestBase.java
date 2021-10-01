@@ -4,8 +4,11 @@ import com.codeborne.selenide.WebDriverRunner;
 import okhttp3.*;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
+import pages.LogTimePages;
 
 import java.io.IOException;
 import java.net.CookieManager;
@@ -16,6 +19,8 @@ import static com.codeborne.selenide.Selenide.open;
 
 
 public class AuthorizedTestBase extends TestBase {
+
+    public static final Logger LOGGER = LoggerFactory.getLogger(LogTimePages.class);
 
     @BeforeMethod
     @Parameters({"login", "pass"})
@@ -60,6 +65,8 @@ public class AuthorizedTestBase extends TestBase {
             );
             driver.manage()
                     .addCookie(cookie);
+
+
         });
     }
 

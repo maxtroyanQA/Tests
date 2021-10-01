@@ -1,5 +1,6 @@
 package assistive;
 
+import org.testng.annotations.BeforeClass;
 import ru.qatools.properties.Property;
 import ru.qatools.properties.PropertyLoader;
 import ru.qatools.properties.Resource;
@@ -15,6 +16,9 @@ public class TypesProperties {
     @Property("COOKIE_P")
     public static String COOKIE_P;
 
+
+    @Property("BROWSER_P")
+    public static String BROWSER_P;
 
     protected TypesProperties() {
         PropertyLoader.newInstance().populate(this);

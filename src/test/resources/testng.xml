@@ -5,7 +5,9 @@
 (min=1 - max=10)    -->
 <!--thread-count - Установка количества потоков-->
 <suite thread-count="10" parallel="tests" name="Тесты" verbose="10">
-
+    <listeners>
+        <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />
+    </listeners>
     <test name="Тест_1">
         <classes>
             <class name="autotests.LogTimeTest"/>
@@ -15,48 +17,48 @@
         </classes>
     </test>
 
-    <test name="Тест_2">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="16082021"/>
-            <parameter name="login" value="Максим Троян"/>
-            <parameter name="emotion" value="2"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_2">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="16082021"/>-->
+<!--            <parameter name="login" value="Максим Троян"/>-->
+<!--            <parameter name="emotion" value="2"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Тест_3">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="16082021"/>
-            <parameter name="login" value="Максим Троян"/>
-            <parameter name="emotion" value="3"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_3">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="16082021"/>-->
+<!--            <parameter name="login" value="Максим Троян"/>-->
+<!--            <parameter name="emotion" value="3"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Тест_4">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="12345678"/>
-            <parameter name="login" value="Авто Пользователь"/>
-            <parameter name="emotion" value="4"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_4">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="12345678"/>-->
+<!--            <parameter name="login" value="Авто Пользователь"/>-->
+<!--            <parameter name="emotion" value="4"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Тест_5">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="12345678"/>
-            <parameter name="login" value="Авто Пользователь"/>
-            <parameter name="emotion" value="5"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_5">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="12345678"/>-->
+<!--            <parameter name="login" value="Авто Пользователь"/>-->
+<!--            <parameter name="emotion" value="5"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Тест_6">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="12345678"/>
-            <parameter name="login" value="Авто Пользователь"/>
-            <parameter name="emotion" value="6"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_6">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="12345678"/>-->
+<!--            <parameter name="login" value="Авто Пользователь"/>-->
+<!--            <parameter name="emotion" value="6"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>

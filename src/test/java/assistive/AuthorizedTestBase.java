@@ -22,10 +22,10 @@ public class AuthorizedTestBase extends TestBase {
      */
     public void authorizedLogPass() {
 
-        open(properties.startSITE_P);
+        open(properties.startSITE);
 
-        loginPage.setLOGIN(properties.LOGIN_P)
-                .setPass(properties.PASSWORD_P)
+        loginPage.setLogin(properties.LOGIN)
+                .setPass(properties.PASSWORD)
                 .clickButton();
     }
 
@@ -46,14 +46,14 @@ public class AuthorizedTestBase extends TestBase {
 
         RequestBody formBody = new FormBody.Builder()
                 .add("_csrf_token", "")
-                .add("_username", properties.LOGIN_P)
-                .add("_password", properties.PASSWORD_P)
+                .add("_username", properties.LOGIN)
+                .add("_password", properties.PASSWORD)
                 .add("_submit", "Войти")
                 .build();
 
         Request request = new Request.Builder()
-                .url(properties.startSITE_P + "/login_check")
-                .addHeader("cookie", properties.COOKIE_P)
+                .url(properties.startSITE + "/login_check")
+                .addHeader("cookie", properties.COOKIE)
                 .post(formBody)
                 .build();
 
@@ -61,7 +61,7 @@ public class AuthorizedTestBase extends TestBase {
 
         assertThat(response.code(), equalTo(302));
 
-        open(properties.startSITE_P + "/login");
+        open(properties.startSITE + "/login");
 
         WebDriver driver = WebDriverRunner.getWebDriver();
         driver.manage().deleteAllCookies();

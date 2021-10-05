@@ -1,4 +1,4 @@
-package Pages;
+package pages;
 
 import assistive.TestBase;
 import com.codeborne.selenide.Condition;
@@ -33,16 +33,12 @@ public class HomePage extends TestBase {
             $x("//div[@class = 'm-menu__submenu'] //a[@href = '/calendar/']");
 
 
-    //Variables
-
-
-
     @Step("Проверка URL:.../edit")
 
     /** Метод проверки совпадения URL-адреса (домашняя странница) */
     public HomePage foundSiteEdit() {
 
-        webdriver().shouldHave(url(properties.SITEEDIT_P));
+        webdriver().shouldHave(url(properties.SITEEDIT));
 
         return this;
     }
@@ -92,7 +88,7 @@ public class HomePage extends TestBase {
     /** Метод проверки пользователя */
     public HomePage checkLogin() {
 
-        NAME.shouldHave(Condition.text(properties.LOGIN_P));
+        NAME.shouldHave(Condition.text(properties.LOGIN));
 
         return this;
     }
@@ -103,7 +99,7 @@ public class HomePage extends TestBase {
     /** Метод проверки email */
     public HomePage checkEmail() {
 
-        EMAIL.shouldHave(Condition.text(properties.USEREMAIL_P));
+        EMAIL.shouldHave(Condition.text(properties.USEREMAIL));
 
         return this;
     }

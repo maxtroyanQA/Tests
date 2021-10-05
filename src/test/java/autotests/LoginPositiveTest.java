@@ -21,7 +21,7 @@ public class LoginPositiveTest extends TestBase {
 
         //method chaining (цепочки вызовов)
         loginPage.openStartSite()
-                .setLOGIN(USER)
+                .setLogin(USER)
                 .setPass(PASS)
                 .clickButton();
 

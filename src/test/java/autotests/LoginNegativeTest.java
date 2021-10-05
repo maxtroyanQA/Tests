@@ -1,9 +1,9 @@
 package autotests;
 
+import assistive.DataProvider;
 import assistive.TestBase;
 import com.codeborne.selenide.testng.ScreenShooter;
 import org.testng.annotations.Listeners;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 
@@ -12,9 +12,9 @@ import org.testng.annotations.Test;
 public class LoginNegativeTest extends TestBase {
 
 
-    @Parameters({
-            "WRONGUSER", "WRONGPASS"})
-    @Test(description = "Проверка появления надписи 'Invalid credentials.'")
+    @Test(description = "Проверка появления надписи 'Invalid credentials.'",
+            dataProvider = "dataWrongUser",
+            dataProviderClass = DataProvider.class)
     void incorrectUserNameAndPassword(String WRONGUSER, String WRONGPASS) {
 
         try {
@@ -32,4 +32,19 @@ public class LoginNegativeTest extends TestBase {
             e.printStackTrace();
         }
     }
+
+
+    @Test
+    void withoutUserNameAndPassword() {
+        try {
+            loginPage.openStartSite()
+                    .clickButton()
+                    .checkNotInvalid()
+                    .checkSiteLogin();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
+

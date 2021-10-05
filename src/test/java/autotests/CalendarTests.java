@@ -27,8 +27,9 @@ public class CalendarTests extends TestBase {
             calendarPage.openSiteCalendar()
                     .foundSiteCalendar()
                     .loadCalendar()
-                    .comparisonDate()
-                    .checkWorkWeekendDay();
+                    .comparisonDate();
+            checkWorkWeekendDay.checkWorkWeekendDay();
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -43,8 +44,8 @@ public class CalendarTests extends TestBase {
                     .foundSiteCalendar()
                     .loadCalendar()
                     .clickNextMonth()
-                    .loadCalendar()
-                    .checkWorkWeekendDay();
+                    .loadCalendar();
+            checkWorkWeekendDay.checkWorkWeekendDay();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -60,11 +61,12 @@ public class CalendarTests extends TestBase {
                     .foundSiteCalendar()
                     .loadCalendar()
                     .selectAnotherUser(NEWUSERCALENDAR)
-                    .loadCalendar()
-                    .checkWorkWeekendDay();
+                    .loadCalendar();
+            checkWorkWeekendDay.checkWorkWeekendDay();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 }

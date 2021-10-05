@@ -11,7 +11,6 @@ import org.hamcrest.Matchers;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -28,13 +27,13 @@ public class GetHolidaysTests extends TestBase {
     @BeforeMethod
     public void setupAPI() {
 
-        RestAssured.baseURI =properties.startSITE_P;
-        RestAssured.port = properties.PORT_P;
+        RestAssured.baseURI = properties.startSITE;
+        RestAssured.port = properties.PORT;
         RestAssured.basePath = "/api/v2/public";
 
         //Общие параметры для всех запросов
         RequestSpecBuilder keyParameter = new RequestSpecBuilder();
-        keyParameter.addParam("key", properties.KEY_P);
+        keyParameter.addParam("key", properties.KEY);
         RestAssured.requestSpecification = keyParameter.build();
 
         //Общие проверки для всех ответов
@@ -79,25 +78,7 @@ public class GetHolidaysTests extends TestBase {
         List<HolidayItem> items =
                 jsonPath.getList("response.items", HolidayItem.class);
 
-        SoftAssert soft = new SoftAssert();
-        boolean holyDayFound = false;
-        boolean shortDayFound = false;
-        for (HolidayItem item :
-                items) {
-
-            switch (item.type_id) {
-                case 2:
-                    holyDayFound = true;
-                    break;
-                case 1:
-                    shortDayFound = true;
-                    break;
-                default:
-                    soft.fail("Обнаружен день неизвестного типа: " +
-                            item);
-            }
-        }
-        apiPages.assertHolyShort(holyDayFound, shortDayFound);
+        apiPages.assertAll(items);
     }
 
     @Test(description = "Тест API (параметр: тип дня (короткий день))")
@@ -116,21 +97,7 @@ public class GetHolidaysTests extends TestBase {
         List<HolidayItem> items =
                 jsonPath.getList("response.items", HolidayItem.class);
 
-        SoftAssert soft = new SoftAssert();
-        boolean shortDayFound = false;
-        for (HolidayItem item :
-                items) {
-
-            switch (item.type_id) {
-                case 1:
-                    shortDayFound = true;
-                    break;
-                default:
-                    soft.fail("Обнаружен день неизвестного типа: " +
-                            item);
-            }
-        }
-        apiPages.assertShort(shortDayFound);
+        apiPages.assertShort(items);
     }
 
     @Test(description = "Тест API (параметр: тип дня (выходной день))")
@@ -149,21 +116,7 @@ public class GetHolidaysTests extends TestBase {
         List<HolidayItem> items =
                 jsonPath.getList("response.items", HolidayItem.class);
 
-        SoftAssert soft = new SoftAssert();
-        boolean holyDayFound = false;
-        for (HolidayItem item :
-                items) {
-
-            switch (item.type_id) {
-                case 2:
-                    holyDayFound = true;
-                    break;
-                default:
-                    soft.fail("Обнаружен день неизвестного типа: " +
-                            item);
-            }
-        }
-        apiPages.assertHoly(holyDayFound);
+        apiPages.assertHoly(items);
     }
 }
 

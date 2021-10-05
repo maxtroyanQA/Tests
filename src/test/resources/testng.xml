@@ -7,32 +7,31 @@
 <suite thread-count="10" parallel="tests" name="Тесты" verbose="2">
 
 
-    <test name="Позитивный тест (user: Авто Пользователь  pwd: 12345678)">
+<!--    <test name="Позитивный тест (user: Авто Пользователь  pwd: 12345678)">-->
 
-        <parameter name="USER" value="Авто Пользователь"/>
-        <parameter name="PASS" value="12345678"/>
+<!--        <parameter name="USER" value="Авто Пользователь"/>-->
+<!--        <parameter name="PASS" value="12345678"/>-->
 
-        <classes>
-            <class name="autotests.LoginPositiveTest"/>
-        </classes>
-    </test>
-
-
-    <test name="Негативный тест">
-        <parameter name="WRONGUSER" value="TestUser"/>
-        <parameter name="WRONGPASS" value="Password"/>
-        <classes>
-            <class name="autotests.LoginNegativeTest"/>
-        </classes>
-    </test>
+<!--        <classes>-->
+<!--            <class name="autotests.LoginPositiveTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 
-    <test name="Тест календаря" parallel="methods">
-        <parameter name="NEWUSERCALENDAR" value="Абдулин Ринат"/>
-        <classes>
-            <class name="autotests.CalendarTests"/>
-        </classes>
-    </test>
+<!--    <test name="Негативный тест">-->
+
+<!--        <classes>-->
+<!--            <class name="autotests.LoginNegativeTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+
+<!--    <test name="Тест календаря" parallel="methods">-->
+<!--        <parameter name="NEWUSERCALENDAR" value="Абдулин Ринат"/>-->
+<!--        <classes>-->
+<!--            <class name="autotests.CalendarTests"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 
     <test name="Тест API" parallel="methods">

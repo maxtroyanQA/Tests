@@ -8,53 +8,54 @@ import ru.qatools.properties.Resource;
 @Resource.Classpath("app.properties")
 public class TypesProperties {
 
-    @Property("STARTSITE_P")
-    public static String startSITE_P;
+    @Property("STARTSITE")
+    public static String startSITE;
 
-    @Property("LOGIN_P")
-    public static String LOGIN_P;
+    @Property("LOGIN")
+    public static String LOGIN;
 
-    @Property("PASSWORD_P")
-    public static String PASSWORD_P;
+    @Property("PASSWORD")
+    public static String PASSWORD;
 
-    @Property("PORT_P")
-    public static int PORT_P;
+    @Property("PORT")
+    public static int PORT;
 
-    @Property("COOKIE_P")
-    public static String COOKIE_P;
+    @Property("COOKIE")
+    public static String COOKIE;
 
-    @Property("KEY_P")
-    public static String KEY_P;
+    @Property("KEY")
+    public static String KEY;
 
-    @Property("SITEEDIT_P")
-    public static String SITEEDIT_P;
+    @Property("SITEEDIT")
+    public static String SITEEDIT;
 
-    @Property("USEREMAIL_P")
-    public static String USEREMAIL_P;
+    @Property("USEREMAIL")
+    public static String USEREMAIL;
 
-    @Property("SITECALENDAR_P")
-    public static String SITECALENDAR_P;
+    @Property("SITECALENDAR")
+    public static String SITECALENDAR;
 
-    private String EV() {
-        String env = System.getenv("URL");
-        if (env != null) {
-            return env;
-        }
-        return "empty";
-    }
+    @Property("BROWSER")
+    public static String BROWSER;
 
 
+    public String environments() {
 
-    public String toggleVariable(String URLSITE) {
-        URLSITE = null;
-        if (EV().equals(startSITE_P) && (!EV().equals("empty"))) {
-            return EV();
-        } else if (startSITE_P.equals(URLSITE)) {
-            return startSITE_P;
+        String ENV = System.getenv("BROWSER_ENV");
+        String BROWSERSET;
+
+        if (ENV == null) {
+            BROWSERSET = BROWSER;
         } else {
-            return URLSITE;
+            if (ENV.equals("")) {
+                BROWSERSET = BROWSER;
+            } else BROWSERSET = ENV;
         }
+
+        return BROWSERSET;
+
     }
+
 
     protected TypesProperties() {
         PropertyLoader.newInstance().populate(this);

@@ -1,4 +1,4 @@
-package Pages;
+package pages;
 
 import assistive.TestBase;
 import com.codeborne.selenide.SelenideElement;
@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class LoginPage extends TestBase {
 
     //Locators
-    private final SelenideElement LOGIN = $x("//input[@name = '_username']");
+    private final SelenideElement LOGIN = $("[name='_username']");
 
     private final SelenideElement PASSWORD = $("#password");
 
@@ -26,13 +26,13 @@ public class LoginPage extends TestBase {
     private final static String FOUNDTEXT = "Invalid credentials.";
 
     private final static String SITELOGIN =
-            "https://tt-develop.quality-lab.ru/login";
+            "https://tt-develop.quality-lab.ru";
 
 
     @Step("Ввод логина")
 
     /** Метод ввода логина */
-    public LoginPage setLOGIN(String setLoginSend) {
+    public LoginPage setLogin(String setLoginSend) {
 
         LOGIN.sendKeys(setLoginSend);
 
@@ -105,7 +105,7 @@ public class LoginPage extends TestBase {
     /** Метод проверки URL .../login */
     public LoginPage checkSiteLogin() {
 
-        webdriver().shouldHave(WebDriverConditions.url(SITELOGIN));
+        webdriver().shouldHave(WebDriverConditions.url(SITELOGIN + "/login"));
 
         return this;
     }
@@ -127,10 +127,11 @@ public class LoginPage extends TestBase {
     /** Метод открытия стартовой страницы */
     public LoginPage openStartSite() {
 
-        open(properties.startSITE_P);
+        open(properties.startSITE);
 
         return this;
     }
+
     @Step("Проверка, что в поле 'Имя пользователя' сохранился текст, введенный ранее")
 
     /** Метод проверки поля 'Имя пользователя', сохранился текст введенный ранее */

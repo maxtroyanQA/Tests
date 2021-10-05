@@ -3,6 +3,7 @@ package assistive;
 public class HolidayItem extends TestBase {
 
     public int type_id;
+
     private String type;
 
     private String date;

@@ -1,6 +1,5 @@
 package assistive;
 
-import org.testng.annotations.BeforeClass;
 import ru.qatools.properties.Property;
 import ru.qatools.properties.PropertyLoader;
 import ru.qatools.properties.Resource;
@@ -9,16 +8,16 @@ import ru.qatools.properties.Resource;
 @Resource.Classpath("app.properties")
 public class TypesProperties {
 
-    @Property("SITE_P")
-    public static String SITE_P;
+    @Property("SITE")
+    public static String SITE;
 
 
-    @Property("COOKIE_P")
-    public static String COOKIE_P;
+    @Property("COOKIE")
+    public static String COOKIE;
 
 
-    @Property("BROWSER_P")
-    public static String BROWSER_P;
+    @Property("BROWSER")
+    public static String BROWSER;
 
     protected TypesProperties() {
         PropertyLoader.newInstance().populate(this);

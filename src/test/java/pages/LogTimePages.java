@@ -21,7 +21,7 @@ public class LogTimePages extends TestBase {
     public static final Logger LOGGER = LoggerFactory.getLogger(LogTimePages.class);
 
     //CSS и XPath локаторы
-    protected SelenideElement BUTTONMENU = $("#m_aside_left_minimize_toggle");
+    protected SelenideElement BUTTONMENU = $x("//a[@id='m_aside_left_minimize_toggle']");
     protected SelenideElement REPORTTODAY = $x("//li[@class = " +
             "'m-menu__item ']//a[@href = '/report/group/edit']");
     protected SelenideElement REPORT = $x("//a[@class = " +
@@ -35,8 +35,7 @@ public class LogTimePages extends TestBase {
     // Метод нажатия на выпадающее меню
     public LogTimePages clickMenu() {
 
-        BUTTONMENU.shouldBe(visible
-                .because("Меню должно быть видимым")).click();
+        BUTTONMENU.click();
 
         LOGGER.info("Нажатие на выпадающее меню");
 
@@ -97,7 +96,7 @@ public class LogTimePages extends TestBase {
 
     @Step("Открыть URL:...+ /report/group/edit")
     public LogTimePages openStartSIte() {
-        open(prop.SITE_P + "/report/group/edit");
+        open(prop.SITE + "/report/group/edit");
 
         LOGGER.info("Открыть URL:...+ /report/group/edit");
 

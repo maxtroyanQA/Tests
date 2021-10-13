@@ -25,7 +25,7 @@ import static java.io.File.createTempFile;
 
 @Listeners({ReportPortalTestNGListener.class, ScreenShooter.class, TestListenerAdapter.class})
 public class LogTimeTest extends TestBase {
-    private WebDriverRunner driver;
+
     public static final Logger LOGGER = LoggerFactory.getLogger(LogTimePages.class);
 
     @BeforeMethod (description = "Авторизация")
@@ -36,8 +36,8 @@ public class LogTimeTest extends TestBase {
     }
 
     @Parameters({"emotion"})
-    @Test(description = "Тест пользователей")
-    public void UserTest(int emotion) throws IOException {
+    @Test(description = "Тест пользователей", threadPoolSize = 3)
+    public void UserTest(int emotion) {
 
         LOGGER.info("Start Test");
 

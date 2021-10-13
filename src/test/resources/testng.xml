@@ -4,61 +4,215 @@
 <!--verbose - количество выведенной информации в консоль после теста
 (min=1 - max=10)    -->
 <!--thread-count - Установка количества потоков-->
-<suite thread-count="10" parallel="tests" name="Тесты" verbose="10">
+<suite thread-count="1" parallel="tests" name="Тесты" verbose="10">
+
     <listeners>
         <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />
     </listeners>
-    <test name="Тест_1">
+
+    <test name="Тест_1.1(Opera)" >
+
         <classes>
             <class name="autotests.LogTimeTest"/>
             <parameter name="pass" value="16082021"/>
             <parameter name="login" value="Максим Троян"/>
             <parameter name="emotion" value="1"/>
+            <parameter name="dataBrowser" value="docker_opera"/>
+            <parameter name="browser" value="Opera"/>
         </classes>
     </test>
 
-<!--    <test name="Тест_2">-->
-<!--        <classes>-->
-<!--            <class name="autotests.LogTimeTest"/>-->
-<!--            <parameter name="pass" value="16082021"/>-->
-<!--            <parameter name="login" value="Максим Троян"/>-->
-<!--            <parameter name="emotion" value="2"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Тест_2.1(Opera)">
+        <parameter name="pass" value="16082021"/>
+        <parameter name="login" value="Максим Троян"/>
+        <parameter name="emotion" value="2"/>
+        <parameter name="dataBrowser" value="docker_opera"/>
+        <parameter name="BROWSER" value="Opera"/>
+        <classes>
+            <class name="autotests.LogTimeTest"/>
 
-<!--    <test name="Тест_3">-->
-<!--        <classes>-->
-<!--            <class name="autotests.LogTimeTest"/>-->
-<!--            <parameter name="pass" value="16082021"/>-->
-<!--            <parameter name="login" value="Максим Троян"/>-->
-<!--            <parameter name="emotion" value="3"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+        </classes>
+    </test>
 
-<!--    <test name="Тест_4">-->
-<!--        <classes>-->
-<!--            <class name="autotests.LogTimeTest"/>-->
-<!--            <parameter name="pass" value="12345678"/>-->
-<!--            <parameter name="login" value="Авто Пользователь"/>-->
-<!--            <parameter name="emotion" value="4"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Тест_3.1(Opera)">
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="16082021"/>
+            <parameter name="login" value="Максим Троян"/>
+            <parameter name="emotion" value="3"/>
+            <parameter name="dataBrowser" value="docker_opera"/>
+            <parameter name="BROWSER" value="Opera"/>
+        </classes>
+    </test>
 
-<!--    <test name="Тест_5">-->
-<!--        <classes>-->
-<!--            <class name="autotests.LogTimeTest"/>-->
-<!--            <parameter name="pass" value="12345678"/>-->
-<!--            <parameter name="login" value="Авто Пользователь"/>-->
-<!--            <parameter name="emotion" value="5"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Тест_4.1(Opera)">
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="12345678"/>
+            <parameter name="login" value="Авто Пользователь"/>
+            <parameter name="emotion" value="4"/>
+            <parameter name="dataBrowser" value="docker_opera"/>
+            <parameter name="BROWSER" value="Opera"/>
+        </classes>
+    </test>
 
-<!--    <test name="Тест_6">-->
-<!--        <classes>-->
-<!--            <class name="autotests.LogTimeTest"/>-->
-<!--            <parameter name="pass" value="12345678"/>-->
-<!--            <parameter name="login" value="Авто Пользователь"/>-->
-<!--            <parameter name="emotion" value="6"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Тест_5.1(Opera)">
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="12345678"/>
+            <parameter name="login" value="Авто Пользователь"/>
+            <parameter name="emotion" value="5"/>
+            <parameter name="dataBrowser" value="docker_opera"/>
+            <parameter name="BROWSER" value="Opera"/>
+        </classes>
+    </test>
+
+    <test name="Тест_6.1(Opera)">
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="12345678"/>
+            <parameter name="login" value="Авто Пользователь"/>
+            <parameter name="emotion" value="6"/>
+            <parameter name="dataBrowser" value="docker_opera"/>
+            <parameter name="BROWSER" value="Opera"/>
+        </classes>
+    </test>
+
+
+    <test name="Тест_1.2(Chrome)">
+
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="16082021"/>
+            <parameter name="login" value="Максим Троян"/>
+            <parameter name="emotion" value="1"/>
+            <parameter name="dataBrowser" value="docker_chrome"/>
+            <parameter name="browser" value="Chrome"/>
+        </classes>
+    </test>
+
+    <test name="Тест_2.2(Chrome)">
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="16082021"/>
+            <parameter name="login" value="Максим Троян"/>
+            <parameter name="emotion" value="2"/>
+            <parameter name="dataBrowser" value="docker_chrome"/>
+            <parameter name="BROWSER" value="Chrome"/>
+        </classes>
+    </test>
+
+    <test name="Тест_3.2(Chrome)">
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="16082021"/>
+            <parameter name="login" value="Максим Троян"/>
+            <parameter name="emotion" value="3"/>
+            <parameter name="dataBrowser" value="docker_chrome"/>
+            <parameter name="BROWSER" value="Chrome"/>
+        </classes>
+    </test>
+
+    <test name="Тест_4.2(Chrome)">
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="12345678"/>
+            <parameter name="login" value="Авто Пользователь"/>
+            <parameter name="emotion" value="4"/>
+            <parameter name="dataBrowser" value="docker_chrome"/>
+            <parameter name="BROWSER" value="Chrome"/>
+        </classes>
+    </test>
+
+    <test name="Тест_5.2(Chrome)">
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="12345678"/>
+            <parameter name="login" value="Авто Пользователь"/>
+            <parameter name="emotion" value="5"/>
+            <parameter name="dataBrowser" value="docker_chrome"/>
+            <parameter name="BROWSER" value="Chrome"/>
+        </classes>
+    </test>
+
+    <test name="Тест_6.2(Chrome)">
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="12345678"/>
+            <parameter name="login" value="Авто Пользователь"/>
+            <parameter name="emotion" value="6"/>
+            <parameter name="dataBrowser" value="docker_chrome"/>
+            <parameter name="BROWSER" value="Chrome"/>
+        </classes>
+    </test>
+
+
+    <test name="Тест_1.3(Firefox)">
+
+
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="16082021"/>
+            <parameter name="login" value="Максим Троян"/>
+            <parameter name="emotion" value="1"/>
+            <parameter name="dataBrowser" value="docker_firefox"/>
+            <parameter name="browser" value="Firefox"/>
+        </classes>
+    </test>
+
+    <test name="Тест_2.3(Firefox)">
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="16082021"/>
+            <parameter name="login" value="Максим Троян"/>
+            <parameter name="emotion" value="2"/>
+            <parameter name="dataBrowser" value="docker_firefox"/>
+            <parameter name="BROWSER" value="Firefox"/>
+        </classes>
+    </test>
+
+    <test name="Тест_3.3(Firefox)">
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="16082021"/>
+            <parameter name="login" value="Максим Троян"/>
+            <parameter name="emotion" value="3"/>
+            <parameter name="dataBrowser" value="docker_firefox"/>
+            <parameter name="BROWSER" value="Firefox"/>
+        </classes>
+    </test>
+
+    <test name="Тест_4.3(Firefox)">
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="12345678"/>
+            <parameter name="login" value="Авто Пользователь"/>
+            <parameter name="emotion" value="4"/>
+            <parameter name="dataBrowser" value="docker_firefox"/>
+            <parameter name="BROWSER" value="Firefox"/>
+        </classes>
+    </test>
+
+    <test name="Тест_5.3(Firefox)">
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="12345678"/>
+            <parameter name="login" value="Авто Пользователь"/>
+            <parameter name="emotion" value="5"/>
+            <parameter name="dataBrowser" value="docker_firefox"/>
+            <parameter name="BROWSER" value="Firefox"/>
+        </classes>
+    </test>
+
+    <test name="Тест_6.3(Firefox)">
+        <classes>
+            <class name="autotests.LogTimeTest"/>
+            <parameter name="pass" value="12345678"/>
+            <parameter name="login" value="Авто Пользователь"/>
+            <parameter name="emotion" value="6"/>
+            <parameter name="dataBrowser" value="docker_firefox"/>
+            <parameter name="BROWSER" value="Firefox"/>
+        </classes>
+    </test>
+
 </suite>

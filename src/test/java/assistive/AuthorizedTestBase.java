@@ -8,7 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
-import pages.LogTimePages;
+
+
 
 import java.io.IOException;
 import java.net.CookieManager;
@@ -16,11 +17,12 @@ import java.net.CookiePolicy;
 import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Selenide.open;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class AuthorizedTestBase extends TestBase {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(LogTimePages.class);
 
     @BeforeMethod
     @Parameters({"login", "pass"})
@@ -33,7 +35,7 @@ public class AuthorizedTestBase extends TestBase {
         OkHttpClient client = new OkHttpClient.Builder()
                 .cookieJar(cookieJar)
                 .followRedirects(false)
-                .readTimeout(5, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
                 .build();
 
         RequestBody formBody = new FormBody.Builder()
@@ -44,14 +46,17 @@ public class AuthorizedTestBase extends TestBase {
                 .build();
 
         Request request = new Request.Builder()
-                .url(prop.SITE_P + "/login_check")
-                .addHeader("cookie", prop.COOKIE_P)
+                .url(prop.SITE + "/login_check")
+                .addHeader("cookie", prop.COOKIE)
                 .post(formBody)
                 .build();
 
-        client.newCall(request).execute();
+        Response response = client.newCall(request).execute();
+       // assertThat(response.code(), equalTo(302));
+      //  System.out.println(response.code());
+        response.body().close();
 
-        open(prop.SITE_P + "/login");
+        open(prop.SITE + "/login");
 
         WebDriver driver = WebDriverRunner.getWebDriver();
         driver.manage().deleteAllCookies();

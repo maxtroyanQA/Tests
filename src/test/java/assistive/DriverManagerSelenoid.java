@@ -21,8 +21,9 @@ public void driverManagerSelenoid ( String dataBrowser) throws MalformedURLExcep
 
     DesiredCapabilities capabilities = new DesiredCapabilities();
     RemoteWebDriver driver;
+
     String runType = dataBrowser;
-        switch(dataBrowser)
+        switch(runType)
 
     {
 
@@ -35,15 +36,14 @@ public void driverManagerSelenoid ( String dataBrowser) throws MalformedURLExcep
             break;
 
 
-        case ("docker_opera"):
+        case ("opera"):
             capabilities.setBrowserName("opera");
-            capabilities.setVersion("79.0");
+            capabilities.setVersion("69.0");
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", false);
-            capabilities.setCapability("screenResolution","1920x1080x24");
 
             driver = new RemoteWebDriver(
-                    URI.create("http://localhost:8080/wd/hub").toURL(),
+                    URI.create("http://130.193.52.162:8080/wd/hub").toURL(),
                     capabilities
             );
             driver.manage().window().maximize();
@@ -52,14 +52,14 @@ public void driverManagerSelenoid ( String dataBrowser) throws MalformedURLExcep
 
             break;
 
-        case ("docker_chrome"):
+        case ("chrome"):
             capabilities.setBrowserName("chrome");
-            capabilities.setVersion("94.0");
+            capabilities.setVersion("84.0");
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", false);
 
             driver = new RemoteWebDriver(
-                    URI.create("http://localhost:8080/wd/hub").toURL(),
+                    URI.create("http://84.201.167.51:8080/wd/hub").toURL(),
                     capabilities
             );
             driver.manage().window().maximize();
@@ -68,14 +68,14 @@ public void driverManagerSelenoid ( String dataBrowser) throws MalformedURLExcep
 
             break;
 
-        case ("docker_firefox"):
+        case ("firefox"):
             capabilities.setBrowserName("firefox");
-            capabilities.setVersion("92.0");
+            capabilities.setVersion("78.0");
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", false);
 
             driver = new RemoteWebDriver(
-                    URI.create("http://localhost:8080/wd/hub").toURL(),
+                    URI.create("http://84.252.137.75:8080/wd/hub").toURL(),
                     capabilities
             );
             driver.manage().window().maximize();

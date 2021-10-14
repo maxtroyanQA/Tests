@@ -4,7 +4,7 @@
 <!--verbose - количество выведенной информации в консоль после теста
 (min=1 - max=10)    -->
 <!--thread-count - Установка количества потоков-->
-<suite thread-count="1" parallel="tests" name="Тесты" verbose="10">
+<suite thread-count="16" parallel="tests" name="Тесты" verbose="10">
 
     <listeners>
         <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />
@@ -17,7 +17,7 @@
             <parameter name="pass" value="16082021"/>
             <parameter name="login" value="Максим Троян"/>
             <parameter name="emotion" value="1"/>
-            <parameter name="dataBrowser" value="docker_opera"/>
+            <parameter name="dataBrowser" value="opera"/>
             <parameter name="browser" value="Opera"/>
         </classes>
     </test>
@@ -26,11 +26,10 @@
         <parameter name="pass" value="16082021"/>
         <parameter name="login" value="Максим Троян"/>
         <parameter name="emotion" value="2"/>
-        <parameter name="dataBrowser" value="docker_opera"/>
+        <parameter name="dataBrowser" value="opera"/>
         <parameter name="BROWSER" value="Opera"/>
         <classes>
             <class name="autotests.LogTimeTest"/>
-
         </classes>
     </test>
 
@@ -40,7 +39,7 @@
             <parameter name="pass" value="16082021"/>
             <parameter name="login" value="Максим Троян"/>
             <parameter name="emotion" value="3"/>
-            <parameter name="dataBrowser" value="docker_opera"/>
+            <parameter name="dataBrowser" value="opera"/>
             <parameter name="BROWSER" value="Opera"/>
         </classes>
     </test>
@@ -51,7 +50,7 @@
             <parameter name="pass" value="12345678"/>
             <parameter name="login" value="Авто Пользователь"/>
             <parameter name="emotion" value="4"/>
-            <parameter name="dataBrowser" value="docker_opera"/>
+            <parameter name="dataBrowser" value="opera"/>
             <parameter name="BROWSER" value="Opera"/>
         </classes>
     </test>
@@ -62,7 +61,7 @@
             <parameter name="pass" value="12345678"/>
             <parameter name="login" value="Авто Пользователь"/>
             <parameter name="emotion" value="5"/>
-            <parameter name="dataBrowser" value="docker_opera"/>
+            <parameter name="dataBrowser" value="opera"/>
             <parameter name="BROWSER" value="Opera"/>
         </classes>
     </test>
@@ -73,7 +72,7 @@
             <parameter name="pass" value="12345678"/>
             <parameter name="login" value="Авто Пользователь"/>
             <parameter name="emotion" value="6"/>
-            <parameter name="dataBrowser" value="docker_opera"/>
+            <parameter name="dataBrowser" value="opera"/>
             <parameter name="BROWSER" value="Opera"/>
         </classes>
     </test>
@@ -86,7 +85,7 @@
             <parameter name="pass" value="16082021"/>
             <parameter name="login" value="Максим Троян"/>
             <parameter name="emotion" value="1"/>
-            <parameter name="dataBrowser" value="docker_chrome"/>
+            <parameter name="dataBrowser" value="chrome"/>
             <parameter name="browser" value="Chrome"/>
         </classes>
     </test>
@@ -97,7 +96,7 @@
             <parameter name="pass" value="16082021"/>
             <parameter name="login" value="Максим Троян"/>
             <parameter name="emotion" value="2"/>
-            <parameter name="dataBrowser" value="docker_chrome"/>
+            <parameter name="dataBrowser" value="chrome"/>
             <parameter name="BROWSER" value="Chrome"/>
         </classes>
     </test>
@@ -108,7 +107,7 @@
             <parameter name="pass" value="16082021"/>
             <parameter name="login" value="Максим Троян"/>
             <parameter name="emotion" value="3"/>
-            <parameter name="dataBrowser" value="docker_chrome"/>
+            <parameter name="dataBrowser" value="chrome"/>
             <parameter name="BROWSER" value="Chrome"/>
         </classes>
     </test>
@@ -119,7 +118,7 @@
             <parameter name="pass" value="12345678"/>
             <parameter name="login" value="Авто Пользователь"/>
             <parameter name="emotion" value="4"/>
-            <parameter name="dataBrowser" value="docker_chrome"/>
+            <parameter name="dataBrowser" value="chrome"/>
             <parameter name="BROWSER" value="Chrome"/>
         </classes>
     </test>
@@ -130,7 +129,7 @@
             <parameter name="pass" value="12345678"/>
             <parameter name="login" value="Авто Пользователь"/>
             <parameter name="emotion" value="5"/>
-            <parameter name="dataBrowser" value="docker_chrome"/>
+            <parameter name="dataBrowser" value="chrome"/>
             <parameter name="BROWSER" value="Chrome"/>
         </classes>
     </test>
@@ -141,7 +140,7 @@
             <parameter name="pass" value="12345678"/>
             <parameter name="login" value="Авто Пользователь"/>
             <parameter name="emotion" value="6"/>
-            <parameter name="dataBrowser" value="docker_chrome"/>
+            <parameter name="dataBrowser" value="chrome"/>
             <parameter name="BROWSER" value="Chrome"/>
         </classes>
     </test>
@@ -155,7 +154,7 @@
             <parameter name="pass" value="16082021"/>
             <parameter name="login" value="Максим Троян"/>
             <parameter name="emotion" value="1"/>
-            <parameter name="dataBrowser" value="docker_firefox"/>
+            <parameter name="dataBrowser" value="firefox"/>
             <parameter name="browser" value="Firefox"/>
         </classes>
     </test>
@@ -166,7 +165,7 @@
             <parameter name="pass" value="16082021"/>
             <parameter name="login" value="Максим Троян"/>
             <parameter name="emotion" value="2"/>
-            <parameter name="dataBrowser" value="docker_firefox"/>
+            <parameter name="dataBrowser" value="firefox"/>
             <parameter name="BROWSER" value="Firefox"/>
         </classes>
     </test>
@@ -177,7 +176,7 @@
             <parameter name="pass" value="16082021"/>
             <parameter name="login" value="Максим Троян"/>
             <parameter name="emotion" value="3"/>
-            <parameter name="dataBrowser" value="docker_firefox"/>
+            <parameter name="dataBrowser" value="firefox"/>
             <parameter name="BROWSER" value="Firefox"/>
         </classes>
     </test>
@@ -188,7 +187,7 @@
             <parameter name="pass" value="12345678"/>
             <parameter name="login" value="Авто Пользователь"/>
             <parameter name="emotion" value="4"/>
-            <parameter name="dataBrowser" value="docker_firefox"/>
+            <parameter name="dataBrowser" value="firefox"/>
             <parameter name="BROWSER" value="Firefox"/>
         </classes>
     </test>
@@ -199,7 +198,7 @@
             <parameter name="pass" value="12345678"/>
             <parameter name="login" value="Авто Пользователь"/>
             <parameter name="emotion" value="5"/>
-            <parameter name="dataBrowser" value="docker_firefox"/>
+            <parameter name="dataBrowser" value="firefox"/>
             <parameter name="BROWSER" value="Firefox"/>
         </classes>
     </test>
@@ -210,7 +209,7 @@
             <parameter name="pass" value="12345678"/>
             <parameter name="login" value="Авто Пользователь"/>
             <parameter name="emotion" value="6"/>
-            <parameter name="dataBrowser" value="docker_firefox"/>
+            <parameter name="dataBrowser" value="firefox"/>
             <parameter name="BROWSER" value="Firefox"/>
         </classes>
     </test>

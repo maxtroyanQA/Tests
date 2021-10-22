@@ -23,27 +23,33 @@ public void driverManagerSelenoid ( String dataBrowser) throws MalformedURLExcep
     RemoteWebDriver driver;
 
     String runType = dataBrowser;
-        switch(runType)
+        switch(dataBrowser)
 
     {
-
+        /**
+         * Для запусков тестов через терминал
+         * с указанием необходимого браузера,
+         * использовать команду: mvn test -Dbrowser=chrome.
+         * По умолчанию запуск происходит в браузере 'Opera'
+         */
         case ("local"):
          //   Configuration.browser = BROWSER;
            // Configuration.browser = "Firefox";
             Configuration.browserPosition = "1921x0";
             Configuration.browserSize = "1800x1000";
-
+            Configuration.browser = System.getProperty("browser", "opera");
+           //
             break;
 
 
         case ("opera"):
             capabilities.setBrowserName("opera");
-            capabilities.setVersion("69.0");
+            capabilities.setVersion("79.0");
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", false);
 
             driver = new RemoteWebDriver(
-                    URI.create("http://130.193.52.162:8080/wd/hub").toURL(),
+                    URI.create("http://192.168.1.116:8080/wd/hub").toURL(),
                     capabilities
             );
             driver.manage().window().maximize();
@@ -54,12 +60,12 @@ public void driverManagerSelenoid ( String dataBrowser) throws MalformedURLExcep
 
         case ("chrome"):
             capabilities.setBrowserName("chrome");
-            capabilities.setVersion("84.0");
+            capabilities.setVersion("93.0");
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", false);
 
             driver = new RemoteWebDriver(
-                    URI.create("http://84.201.167.51:8080/wd/hub").toURL(),
+                    URI.create("http://192.168.1.116:8080/wd/hub").toURL(),
                     capabilities
             );
             driver.manage().window().maximize();
@@ -70,12 +76,12 @@ public void driverManagerSelenoid ( String dataBrowser) throws MalformedURLExcep
 
         case ("firefox"):
             capabilities.setBrowserName("firefox");
-            capabilities.setVersion("78.0");
+            capabilities.setVersion("92.0");
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", false);
 
             driver = new RemoteWebDriver(
-                    URI.create("http://84.252.137.75:8080/wd/hub").toURL(),
+                    URI.create("http://192.168.1.116:8080/wd/hub").toURL(),
                     capabilities
             );
             driver.manage().window().maximize();

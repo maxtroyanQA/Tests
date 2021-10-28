@@ -22,8 +22,8 @@ public void driverManagerSelenoid ( String dataBrowser) throws MalformedURLExcep
     DesiredCapabilities capabilities = new DesiredCapabilities();
     RemoteWebDriver driver;
 
-    String runType = dataBrowser;
-        switch(dataBrowser)
+    String runType = "local";
+        switch("local")
 
     {
         /**

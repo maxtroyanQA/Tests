@@ -22,27 +22,27 @@
         </classes>
     </test>
 
-    <test name="Тест_2.1(Opera)">
-        <parameter name="pass" value="16082021"/>
-        <parameter name="login" value="Максим Троян"/>
-        <parameter name="emotion" value="2"/>
-        <parameter name="dataBrowser" value="opera"/>
-        <parameter name="BROWSER" value="Opera"/>
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_2.1(Opera)">-->
+<!--        <parameter name="pass" value="16082021"/>-->
+<!--        <parameter name="login" value="Максим Троян"/>-->
+<!--        <parameter name="emotion" value="2"/>-->
+<!--        <parameter name="dataBrowser" value="opera"/>-->
+<!--        <parameter name="BROWSER" value="Opera"/>-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Тест_3.1(Opera)">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="16082021"/>
-            <parameter name="login" value="Максим Троян"/>
-            <parameter name="emotion" value="3"/>
-            <parameter name="dataBrowser" value="opera"/>
-            <parameter name="BROWSER" value="Opera"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_3.1(Opera)">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="16082021"/>-->
+<!--            <parameter name="login" value="Максим Троян"/>-->
+<!--            <parameter name="emotion" value="3"/>-->
+<!--            <parameter name="dataBrowser" value="opera"/>-->
+<!--            <parameter name="BROWSER" value="Opera"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 <!--    <test name="Тест_4.1(Opera)">-->
 <!--        <classes>-->
@@ -159,27 +159,27 @@
         </classes>
     </test>
 
-    <test name="Тест_2.3(Firefox)">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="16082021"/>
-            <parameter name="login" value="Максим Троян"/>
-            <parameter name="emotion" value="2"/>
-            <parameter name="dataBrowser" value="firefox"/>
-            <parameter name="BROWSER" value="Firefox"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_2.3(Firefox)">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="16082021"/>-->
+<!--            <parameter name="login" value="Максим Троян"/>-->
+<!--            <parameter name="emotion" value="2"/>-->
+<!--            <parameter name="dataBrowser" value="firefox"/>-->
+<!--            <parameter name="BROWSER" value="Firefox"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Тест_3.3(Firefox)">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="16082021"/>
-            <parameter name="login" value="Максим Троян"/>
-            <parameter name="emotion" value="3"/>
-            <parameter name="dataBrowser" value="firefox"/>
-            <parameter name="BROWSER" value="Firefox"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_3.3(Firefox)">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="16082021"/>-->
+<!--            <parameter name="login" value="Максим Троян"/>-->
+<!--            <parameter name="emotion" value="3"/>-->
+<!--            <parameter name="dataBrowser" value="firefox"/>-->
+<!--            <parameter name="BROWSER" value="Firefox"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 <!--    <test name="Тест_4.3(Firefox)">-->
 <!--        <classes>-->

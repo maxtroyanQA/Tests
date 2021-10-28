@@ -49,6 +49,7 @@ public void driverManagerSelenoid ( String dataBrowser) throws MalformedURLExcep
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", false);
 
+
             driver = new RemoteWebDriver(
                     URI.create("http://192.168.1.116:8080/wd/hub").toURL(),
                     capabilities

@@ -44,106 +44,106 @@
         </classes>
     </test>
 
-    <test name="Тест_4.1(Opera)">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="12345678"/>
-            <parameter name="login" value="Авто Пользователь"/>
-            <parameter name="emotion" value="4"/>
-            <parameter name="dataBrowser" value="opera"/>
-            <parameter name="BROWSER" value="Opera"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_4.1(Opera)">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="12345678"/>-->
+<!--            <parameter name="login" value="Авто Пользователь"/>-->
+<!--            <parameter name="emotion" value="4"/>-->
+<!--            <parameter name="dataBrowser" value="opera"/>-->
+<!--            <parameter name="BROWSER" value="Opera"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Тест_5.1(Opera)">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="12345678"/>
-            <parameter name="login" value="Авто Пользователь"/>
-            <parameter name="emotion" value="5"/>
-            <parameter name="dataBrowser" value="opera"/>
-            <parameter name="BROWSER" value="Opera"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_5.1(Opera)">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="12345678"/>-->
+<!--            <parameter name="login" value="Авто Пользователь"/>-->
+<!--            <parameter name="emotion" value="5"/>-->
+<!--            <parameter name="dataBrowser" value="opera"/>-->
+<!--            <parameter name="BROWSER" value="Opera"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Тест_6.1(Opera)">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="12345678"/>
-            <parameter name="login" value="Авто Пользователь"/>
-            <parameter name="emotion" value="6"/>
-            <parameter name="dataBrowser" value="opera"/>
-            <parameter name="BROWSER" value="Opera"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_6.1(Opera)">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="12345678"/>-->
+<!--            <parameter name="login" value="Авто Пользователь"/>-->
+<!--            <parameter name="emotion" value="6"/>-->
+<!--            <parameter name="dataBrowser" value="opera"/>-->
+<!--            <parameter name="BROWSER" value="Opera"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 
-    <test name="Тест_1.2(Chrome)">
+<!--    <test name="Тест_1.2(Chrome)">-->
 
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="16082021"/>
-            <parameter name="login" value="Максим Троян"/>
-            <parameter name="emotion" value="1"/>
-            <parameter name="dataBrowser" value="chrome"/>
-            <parameter name="browser" value="Chrome"/>
-        </classes>
-    </test>
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="16082021"/>-->
+<!--            <parameter name="login" value="Максим Троян"/>-->
+<!--            <parameter name="emotion" value="1"/>-->
+<!--            <parameter name="dataBrowser" value="chrome"/>-->
+<!--            <parameter name="browser" value="Chrome"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Тест_2.2(Chrome)">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="16082021"/>
-            <parameter name="login" value="Максим Троян"/>
-            <parameter name="emotion" value="2"/>
-            <parameter name="dataBrowser" value="chrome"/>
-            <parameter name="BROWSER" value="Chrome"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_2.2(Chrome)">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="16082021"/>-->
+<!--            <parameter name="login" value="Максим Троян"/>-->
+<!--            <parameter name="emotion" value="2"/>-->
+<!--            <parameter name="dataBrowser" value="chrome"/>-->
+<!--            <parameter name="BROWSER" value="Chrome"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Тест_3.2(Chrome)">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="16082021"/>
-            <parameter name="login" value="Максим Троян"/>
-            <parameter name="emotion" value="3"/>
-            <parameter name="dataBrowser" value="chrome"/>
-            <parameter name="BROWSER" value="Chrome"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_3.2(Chrome)">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="16082021"/>-->
+<!--            <parameter name="login" value="Максим Троян"/>-->
+<!--            <parameter name="emotion" value="3"/>-->
+<!--            <parameter name="dataBrowser" value="chrome"/>-->
+<!--            <parameter name="BROWSER" value="Chrome"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Тест_4.2(Chrome)">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="12345678"/>
-            <parameter name="login" value="Авто Пользователь"/>
-            <parameter name="emotion" value="4"/>
-            <parameter name="dataBrowser" value="chrome"/>
-            <parameter name="BROWSER" value="Chrome"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_4.2(Chrome)">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="12345678"/>-->
+<!--            <parameter name="login" value="Авто Пользователь"/>-->
+<!--            <parameter name="emotion" value="4"/>-->
+<!--            <parameter name="dataBrowser" value="chrome"/>-->
+<!--            <parameter name="BROWSER" value="Chrome"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Тест_5.2(Chrome)">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="12345678"/>
-            <parameter name="login" value="Авто Пользователь"/>
-            <parameter name="emotion" value="5"/>
-            <parameter name="dataBrowser" value="chrome"/>
-            <parameter name="BROWSER" value="Chrome"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_5.2(Chrome)">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="12345678"/>-->
+<!--            <parameter name="login" value="Авто Пользователь"/>-->
+<!--            <parameter name="emotion" value="5"/>-->
+<!--            <parameter name="dataBrowser" value="chrome"/>-->
+<!--            <parameter name="BROWSER" value="Chrome"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Тест_6.2(Chrome)">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="12345678"/>
-            <parameter name="login" value="Авто Пользователь"/>
-            <parameter name="emotion" value="6"/>
-            <parameter name="dataBrowser" value="chrome"/>
-            <parameter name="BROWSER" value="Chrome"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_6.2(Chrome)">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="12345678"/>-->
+<!--            <parameter name="login" value="Авто Пользователь"/>-->
+<!--            <parameter name="emotion" value="6"/>-->
+<!--            <parameter name="dataBrowser" value="chrome"/>-->
+<!--            <parameter name="BROWSER" value="Chrome"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 
     <test name="Тест_1.3(Firefox)">
@@ -181,37 +181,37 @@
         </classes>
     </test>
 
-    <test name="Тест_4.3(Firefox)">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="12345678"/>
-            <parameter name="login" value="Авто Пользователь"/>
-            <parameter name="emotion" value="4"/>
-            <parameter name="dataBrowser" value="firefox"/>
-            <parameter name="BROWSER" value="Firefox"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_4.3(Firefox)">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="12345678"/>-->
+<!--            <parameter name="login" value="Авто Пользователь"/>-->
+<!--            <parameter name="emotion" value="4"/>-->
+<!--            <parameter name="dataBrowser" value="firefox"/>-->
+<!--            <parameter name="BROWSER" value="Firefox"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Тест_5.3(Firefox)">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="12345678"/>
-            <parameter name="login" value="Авто Пользователь"/>
-            <parameter name="emotion" value="5"/>
-            <parameter name="dataBrowser" value="firefox"/>
-            <parameter name="BROWSER" value="Firefox"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_5.3(Firefox)">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="12345678"/>-->
+<!--            <parameter name="login" value="Авто Пользователь"/>-->
+<!--            <parameter name="emotion" value="5"/>-->
+<!--            <parameter name="dataBrowser" value="firefox"/>-->
+<!--            <parameter name="BROWSER" value="Firefox"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Тест_6.3(Firefox)">
-        <classes>
-            <class name="autotests.LogTimeTest"/>
-            <parameter name="pass" value="12345678"/>
-            <parameter name="login" value="Авто Пользователь"/>
-            <parameter name="emotion" value="6"/>
-            <parameter name="dataBrowser" value="firefox"/>
-            <parameter name="BROWSER" value="Firefox"/>
-        </classes>
-    </test>
+<!--    <test name="Тест_6.3(Firefox)">-->
+<!--        <classes>-->
+<!--            <class name="autotests.LogTimeTest"/>-->
+<!--            <parameter name="pass" value="12345678"/>-->
+<!--            <parameter name="login" value="Авто Пользователь"/>-->
+<!--            <parameter name="emotion" value="6"/>-->
+<!--            <parameter name="dataBrowser" value="firefox"/>-->
+<!--            <parameter name="BROWSER" value="Firefox"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 </suite>

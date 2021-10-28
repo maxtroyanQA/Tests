@@ -38,6 +38,7 @@ public void driverManagerSelenoid ( String dataBrowser) throws MalformedURLExcep
             Configuration.browserPosition = "1921x0";
             Configuration.browserSize = "1800x1000";
             Configuration.browser = System.getProperty("browser", "opera");
+            Configuration.browserVersion = "80.0";
            //
             break;
 

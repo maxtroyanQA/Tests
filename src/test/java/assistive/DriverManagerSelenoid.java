@@ -22,8 +22,8 @@ public void driverManagerSelenoid ( String dataBrowser) throws MalformedURLExcep
     DesiredCapabilities capabilities = new DesiredCapabilities();
     RemoteWebDriver driver;
 
-    String runType = "local";
-        switch("local")
+    String runType = dataBrowser;
+        switch(runType)
 
     {
         /**
@@ -59,21 +59,21 @@ public void driverManagerSelenoid ( String dataBrowser) throws MalformedURLExcep
 
             break;
 
-        case ("chrome"):
-            capabilities.setBrowserName("chrome");
-            capabilities.setVersion("93.0");
-            capabilities.setCapability("enableVNC", true);
-            capabilities.setCapability("enableVideo", false);
-
-            driver = new RemoteWebDriver(
-                    URI.create("http://192.168.1.116:8080/wd/hub").toURL(),
-                    capabilities
-            );
-            driver.manage().window().maximize();
-            WebDriverRunner.setWebDriver(driver);
-            Configuration.timeout = 100000;
-
-            break;
+//        case ("chrome"):
+//            capabilities.setBrowserName("chrome");
+//            capabilities.setVersion("93.0");
+//            capabilities.setCapability("enableVNC", true);
+//            capabilities.setCapability("enableVideo", false);
+//
+//            driver = new RemoteWebDriver(
+//                    URI.create("http://192.168.1.116:8080/wd/hub").toURL(),
+//                    capabilities
+//            );
+//            driver.manage().window().maximize();
+//            WebDriverRunner.setWebDriver(driver);
+//            Configuration.timeout = 100000;
+//
+//            break;
 
         case ("firefox"):
             capabilities.setBrowserName("firefox");

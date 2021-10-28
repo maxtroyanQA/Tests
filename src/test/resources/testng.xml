@@ -4,7 +4,7 @@
 <!--verbose - количество выведенной информации в консоль после теста
 (min=1 - max=10)    -->
 <!--thread-count - Установка количества потоков-->
-<suite thread-count="4" parallel="tests" name="Тесты" verbose="10">
+<suite thread-count="2" parallel="tests" name="Тесты" verbose="10">
 
     <listeners>
         <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />

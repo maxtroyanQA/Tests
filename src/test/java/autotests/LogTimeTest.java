@@ -23,7 +23,7 @@ import static com.google.common.io.Resources.getResource;
 import static java.io.File.createTempFile;
 
 
-@Listeners({ReportPortalTestNGListener.class, ScreenShooter.class, TestListenerAdapter.class})
+//@Listeners({ReportPortalTestNGListener.class, ScreenShooter.class, TestListenerAdapter.class})
 public class LogTimeTest extends TestBase {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(LogTimePages.class);
